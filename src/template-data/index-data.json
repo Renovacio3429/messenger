@@ -1,0 +1,19 @@
+{
+  "pageData": {
+    "title": "Login"
+  },
+  "fields": [
+    {
+      "field" : "login",
+      "fieldTitle": "Логин",
+      "fieldErrorTitle" : "Неверный логин",
+      "type": "text"
+    },
+    {
+      "field" : "password",
+      "fieldTitle": "Пароль",
+      "fieldErrorTitle" : "Неверный пароль",
+      "type": "password"
+    }
+  ]
+}

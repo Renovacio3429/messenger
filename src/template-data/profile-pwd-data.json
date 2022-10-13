@@ -1,0 +1,24 @@
+{
+  "fields": [
+    {
+      "field" : "oldPassword",
+      "fieldTitle" : "Почта",
+      "placeholder" : "password",
+      "type" : "password",
+      "border" : true
+    },
+    {
+      "field" : "newPassword",
+      "fieldTitle" : "Логин",
+      "placeholder" : "password",
+      "type" : "password",
+      "border" : true
+    },
+    {
+      "field" : "newPasswordSecond",
+      "fieldTitle" : "Повторите новый пароль",
+      "placeholder" : "password",
+      "type" : "password"
+    }
+  ]
+}

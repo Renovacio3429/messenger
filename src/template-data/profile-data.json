@@ -1,0 +1,54 @@
+{
+  "pageData": {
+    "title": "Profile"
+  },
+  "fields": [
+    {
+      "field" : "email",
+      "fieldTitle" : "Почта",
+      "placeholder" : "pochta@yandex.ru",
+      "type" : "text",
+      "disabledInput" : true,
+      "border" : true
+    },
+    {
+      "field" : "login",
+      "fieldTitle" : "Логин",
+      "placeholder" : "ivanivanov",
+      "type" : "text",
+      "disabledInput" : true,
+      "border" : true
+    },
+    {
+      "field" : "first_name",
+      "fieldTitle" : "Имя",
+      "placeholder" : "Иван",
+      "type" : "text",
+      "disabledInput" : true,
+      "border" : true
+    },
+    {
+      "field" : "second_name",
+      "fieldTitle" : "Фамилия",
+      "placeholder" : "Иванов",
+      "type" : "text",
+      "disabledInput" : true,
+      "border" : true
+    },
+    {
+      "field" : "display_name",
+      "fieldTitle" : "Имя в чате",
+      "placeholder" : "Иван",
+      "type" : "text",
+      "disabledInput" : true,
+      "border" : true
+    },
+    {
+      "field" : "phone",
+      "fieldTitle" : "Телефон",
+      "placeholder" : "+7-(909)-967-30-30",
+      "type" : "text",
+      "disabledInput" : true
+    }
+  ]
+}
