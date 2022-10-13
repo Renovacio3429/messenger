@@ -680,3 +680,8 @@ main {
 	justify-content: space-between;
 	padding: 5px 0 5px 0;
 }
+
+.block-center {
+	display: flex;
+	justify-content: center;
+}

@@ -9,69 +9,16 @@
 <body>
 	<div class="chat-block">
 		<div class="chat-block__sidebar">
-			<div class="chat-block__sidebar__header">
-				<a href="profile.html" class="link chat-block__sidebar__header__link">
-					<div class="header-link-title">Профиль</div>
-					<i class="gray-right-arrow-icon"></i>
-				</a>
-				<input type="text" class = "input chat-input sidebar-input" placeholder="Поиск" name="search">
-			</div>      		
-			<div class="chat-block__sidebar__contacts-block">
-				<div class="chat-block__sidebar__contacts-block__box">
-					<button class="chat-sidebar-contact-window">
-						<span class="sidebar-contact-avatar"></span> 
-						<div class="sidebar-contact-info">Вадим</div>
-						<div class="sidebar-message-info">Пт</div>
-					</button>
-				</div>
-			</div>
+			<div id="chatSidebarHeader" class="chat-block__sidebar__header"></div>
+			<div id="chatSidebarMain" class="chat-block__sidebar__contacts-block"></div>
 		</div>
-		<div class="chat-block__empty-chat-dialog">Выберите чат чтобы отправить сообщение</div>
+		<div id="chatMessageInputTitle" class="chat-block__empty-chat-dialog"></div>
 		<div class="chat-block__chat-dialog">
-			<div class="chat-block__chat-dialog__header">
-				<div class="selected-contact-info-container">
-					<span class="chat-header-avatar"></span> 
-					<div class="contact-info-container">Вадим</div>
-				</div>
-				<div class="dropdown chat-block__chat-dialog__header__dropdown">
-					<button class="chat-dialog-header-actions-button button"></button>
-					<div class="dropdown-content-up">
-                        <a href="#" class="link-black dropdown-link add-user-link">
-                            <i class="add-icon"></i>
-                            <div>Добавить&nbsp;пользователя</div>
-                        </a>
-                        <a href="#" class="link-black dropdown-link remove-user-link">
-                            <i class="remove-icon "></i>
-                            <div>Удалить&nbsp;пользователя</div>
-                        </a>
-  					</div>
-				</div>
-			</div>
+			<div id="chatDialogHeader" class="chat-block__chat-dialog__header"></div>
             <main>
 			    <div class="chat-block__chat-dialog-content"></div>
             </main>
-            <div class="chat-block__chat-dialog-footer">
-            <div class="dropdown chat-block__chat-dialog__footer__dropdown">
-                    <button class="chat-dialog-attach-button button"></button>
-                    <div class="dropdown-content">
-                        <a href="#" class="link-black dropdown-link">
-                            <i class="media-icon"></i>
-                            <div>Фото&nbsp;или&nbsp;видео</div>
-                        </a>
-                        <a href="#" class="link-black dropdown-link">
-                            <i class="file-icon"></i>
-                            <div>Файл</div>
-                        </a>
-                        <a href="#" class="link-black dropdown-link">
-                            <i class="location-icon"></i>
-                            <div>Локация</div>
-                        </a>
-                    </div>
-                </div>
-				<form action="#" class="chat-dialog-form form">
-					<input name="message" id="message" type="text" class="chat-dialog-footer-input input chat-input" placeholder="Сообщение">
-					<button class="chat-dialog-submit-button button"></button>
-				</form>
+            <div id="chatDialogFooter" class="chat-block__chat-dialog-footer">
       		</div>
 		</div>
 	</div>

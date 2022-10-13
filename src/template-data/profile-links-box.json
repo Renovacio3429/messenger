@@ -1,0 +1,24 @@
+{
+  "links" : [
+    {
+      "linkTitle" : "Изменить данные",
+      "linkColor" : "link-blue",
+      "border" : true,
+      "actionClass" : "profile-change-data-link",
+      "href" : "#"
+    },
+    {
+      "linkTitle" : "Изменить пароль",
+      "linkColor" : "link-blue",
+      "border" : true,
+      "actionClass" : "change-pwd-link",
+      "href" : "#"
+    },
+    {
+      "linkTitle" : "Выйти",
+      "linkColor" : "link-red",
+      "actionClass" : "",
+      "href" : "chat.html"
+    }
+  ]
+}

@@ -50,5 +50,17 @@
       "type" : "text",
       "disabledInput" : true
     }
-  ]
+  ],
+  "submitButtons" : {
+    "profileDataSubmit" : {
+      "title" : "Сохранить",
+      "actionClass" : "profile-data-submit",
+      "cssClass" : "profile-block__main__data-block__form__submit"
+    },
+    "profileChangePwdSubmit" : {
+      "title" : "Сохранить",
+      "actionClass" : "profile-change-pwd-submit",
+      "cssClass" : "profile-block__main__pwd-block__form__submit"
+    }
+  }
 }

@@ -17,19 +17,19 @@
 1. Для корректной работы приложения необходимо: 
 <strong><a href="https://nodejs.org/en/">NodeJS</a></strong> 
 ***не ниже*** 12 версии
-2. В директории с проектом выполнить комманду <strong>nnpm install</strong>, для установки нужных зависимостей
-3. Запустисте комманду <strong>npm run start</strong> в коммандной строке из директрори проекта (скрипт скомпилирует проект в директорию dist и запустить его на <strong>NodeJS</strong>  на домене <strong>localhost</strong>
+2. В директории с проектом выполнить комманду `npm install`, для установки нужных зависимостей
+3. Запустисте комманду `npm run start` в коммандной строке из директрори проекта (скрипт скомпилирует проект в директорию dist и запустит его на <strong>NodeJS</strong>  на домене <strong>localhost</strong>
 , порт - <strong>3000</strong>)
 4. Перейти в браузере по адресу *http://localhost:3000/*
 5. enjoy!
 
 ## Другие коммады
 
-<strong>npm run clean</strong> - комманда для очистки директори dist
+`npm run clean` - комманда для очистки директори dist
 <br/>
-<strong>npm run build</strong>  - комманда для сборки проекта, компилирует проект в директорию dist, перед сборкой вылняется комманда <strong>clean</strong> 
+`npm run build`  - комманда для сборки проекта, компилирует проект в директорию dist, перед сборкой вылняется комманда <strong>clean</strong> 
 <br/>
-<strong>npm run dev</strong>  - комманда для разработки и отладки приложения в runtime, build выполнятеся автоматически, с последующим стартом на домене 'http://localhost:3000/', через комманду 
+`npm run dev`  - комманда для разработки и отладки приложения в runtime, build выполнятеся автоматически, с последующим стартом на домене 'http://localhost:3000/', через комманду 
 <strong><a href="https://parceljs.org/getting-started/webapp/">parcel</a></strong>
 
 ## Доступ к страницам
@@ -46,4 +46,4 @@
 
 ## Netlify
 
-Проект можно посмотреть <a href="#">здесь</a></strong>
+Проект можно посмотреть <a href="https://magical-chimera-4e93a7.netlify.app">здесь</a></strong>
