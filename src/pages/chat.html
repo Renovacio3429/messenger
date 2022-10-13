@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Chat</title>
+	<link rel="stylesheet" type="text/css" href="../styles.css">
+    <script type="module" src="../components/chat.js"></script>
+</head>
+<body>
+	<div class="chat-block">
+		<div class="chat-block__sidebar">
+			<div id="chatSidebarHeader" class="chat-block__sidebar__header"></div>
+			<div id="chatSidebarMain" class="chat-block__sidebar__contacts-block"></div>
+		</div>
+		<div id="chatMessageInputTitle" class="chat-block__empty-chat-dialog"></div>
+		<div class="chat-block__chat-dialog">
+			<div id="chatDialogHeader" class="chat-block__chat-dialog__header"></div>
+            <main>
+			    <div class="chat-block__chat-dialog-content"></div>
+            </main>
+            <div id="chatDialogFooter" class="chat-block__chat-dialog-footer">
+      		</div>
+		</div>
+	</div>
+	<div class="modal add-user-modal">
+		<div class="modal-block">
+  			<div class="modal-block__content">
+  				<h2>Добавить пользователя</h2>
+    			<fieldset class="fieldset app__fieldset__input">
+                        <input class="app__fieldset__input input" type="text" placeholder=" ">
+                        <label class="label app__fieldset__label">Логин</label>
+                </fieldset>
+    			<button class="button modal-submit">Поменять</button>
+  			</div>
+		</div>
+	</div>
+	<div class="modal remove-user-modal">
+		<div class="modal-block">
+  		    <div class="modal-block__content">
+  			    <h2>Удалить пользователя</h2>
+    		    <fieldset class="fieldset app__fieldset__input">
+					<input class="app__fieldset__input input" type="text" placeholder=" ">
+					<label class="label app__fieldset__label">Логин</label>
+                </fieldset>
+    		    <button class="button modal-submit">Удалить</button>
+  		    </div>
+  	    </div>
+	</div>
+</body>
+</html>

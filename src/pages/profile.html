@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title id="title"></title>
+	<link rel="stylesheet" type="text/css" href="../styles.css">
+    <script type="module" src="../components/profile.js"></script>
+    <script type="module" src="../modules/file/fileUpload.js"></script>
+</head>
+<body>
+    <div class="profile-block">
+        <div class="profile-block__sidebar">
+            <button class="profile-block__sidebar__button" onclick="location.href='chat.html'"></button>
+        </div>
+        <main>
+            <div class="profile-block__main">
+                <div class="profile-block__main__avatar-block">
+                    <input id="avatar" name="avatar" class="avatar-button profile-block__main__avatar-block__input" type="button">
+                </div>
+                <div class="profile-block__main__data-block">
+                    <div>
+                    <form id="profileDataForm" class="profile-block__main__data-block__form" action="#">
+                        <div id="profile"></div>
+                        <div id="profileChangeDataSubmitBlock" class="block-center"></div>
+                    </form>
+                    </div>
+                    <div id="profileLinksBox" class="profile-actions-box profile-block__main__data-block__links-block"></div>
+                </div>
+                <div class="profile-block__main__pwd-block">
+                    <form action="#" class="profile-block__main__pwd-block__form">
+                        <div id="profileChangePwd"></div>
+                        <div id="profileChangePwdSubmitBlock" class="block-center"></div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+	<div class="avatar-modal modal profile-modal-input">
+		<div class="modal-block">
+			<div class="modal-block__content">
+    			<h2>Загрузите файл</h2>
+    			<a href="#" class="link-blue link-file-input">Выбрать файл на компьютере</a>
+    			<button class="button modal-submit">Поменять</button>
+    			<label>Нужно выбрать файл</label>
+  			</div>
+  		</div>
+	</div>
+	<div class="modal profile-modal-success">
+		<div class="modal-block">
+			<div class="modal-block__content">
+    			<h2>Файл загружен</h2>
+    			<div>pic.jpg</div>
+    			<button class="button modal-submit">Поменять</button>
+  			</div>
+  		</div>
+	</div>
+	<div class="modal profile-modal-fail">
+		<div class="modal-block">
+			<div class="modal-block__content">
+    			<h2>Ошибка, попробуйте ещё раз</h2>
+    			<a href="#" class="link-blue link-file-input">Выбрать файл на компьютере</a>
+    			<button class="button modal-submit">Поменять</button>
+  			</div>
+  		</div>
+	</div>
+</body>
+</html>
