@@ -18,34 +18,18 @@
                     <input id="avatar" name="avatar" class="avatar-button profile-block__main__avatar-block__input" type="button">
                 </div>
                 <div class="profile-block__main__data-block">
-                    <form class="profile-block__main__data-block__form" action="#">
+                    <div>
+                    <form id="profileDataForm" class="profile-block__main__data-block__form" action="#">
                         <div id="profile"></div>
-                        <button class="button profile-data-submit profile-block__main__data-block__form__submit">Сохранить</button>
+                        <div id="profileChangeDataSubmitBlock" class="block-center"></div>
                     </form>
-                    <div class="profile-actions-box profile-block__main__data-block__links-block">
-                        <ul class="ul profile-block__main__data-block__links-block__items">
-                            <li class="test_li bottom-border profile-block__main__data-block__links-block__item">
-                                <a  href="#" class="link-blue profile-change-data-link profile-block__main__data-block__links-block__item__link">
-                                    Изменить данные
-                                </a>
-                            </li>
-                            <li class="test_li bottom-border profile-block__main__data-block__links-block__item">
-                                <a href="#" class="link-blue change-pwd-link profile-block__main__data-block__links-block__item__link">
-                                    Изменить пароль
-                                </a>
-                            </li>
-                            <li class="test_li profile-block__main__data-block__links-block__item">
-                                <a href="chat.html" class="link-red profile-block__main__data-block__links-block__item__link">
-                                    Выйти
-                                </a>
-                            </li>
-                        </ul>
                     </div>
+                    <div id="profileLinksBox" class="profile-actions-box profile-block__main__data-block__links-block"></div>
                 </div>
                 <div class="profile-block__main__pwd-block">
                     <form action="#" class="profile-block__main__pwd-block__form">
                         <div id="profileChangePwd"></div>
-                        <button class="button profile-change-pwd-submit profile-block__main__pwd-block__form__submit">Сохранить</button>
+                        <div id="profileChangePwdSubmitBlock" class="block-center"></div>
                     </form>
                 </div>
             </div>
