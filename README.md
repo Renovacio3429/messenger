@@ -46,4 +46,4 @@
 
 ## Netlify
 
-Проект можно посмотреть <a href="#">здесь</a></strong>
+Проект можно посмотреть <a href="https://magical-chimera-4e93a7.netlify.app">здесь</a></strong>
