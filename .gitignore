@@ -1,0 +1,6 @@
+.idea/
+.chace/
+.parcel-cache/
+node_modules/
+dist/
+package-lock.json
