@@ -1,6 +1,7 @@
-import EventBus from "./eventBus";
+
 import {v4 as makeUUID} from 'uuid';
 import Handlebars from "handlebars";
+import EventBus from "./EventBus";
 
 export default class Block {
     static EVENTS = {
