@@ -1,8 +1,12 @@
 import Block from "../../core/Block";
 import template from "./Contact.tmpl";
 
-export class Contact extends Block {
+type ContactType = {
+    contactName: string,
+    messageInfo: string,
+}
 
+export class Contact extends Block<ContactType> {
     public render(): DocumentFragment {
         return this.compile(template, this.props);
     }

@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "source": "src/index.html",
   "scripts": {
-    "start": "parcel src/index.html -p 3000 && node ./server.js",
+    "start": "node ./server.js",
     "dev": "npm run build && parcel -p 3000 --open",
-    "build": "npm run clean && parcel build src/index.html",
-    "clean": "rm -rf dist/*"
+    "build": "parcel build src/index.html"
   },
   "license": "ISC",
   "dependencies": {

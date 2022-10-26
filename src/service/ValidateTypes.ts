@@ -1,9 +1,9 @@
 export const fieldValidate: Record<string, {regExp: RegExp, exceptionMessage: string }> = {
-    first_name: {
+    firstName: {
         regExp:/^[A-ZА-ЯЁ][A-Za-zА-Яа-яёЁ-]+$/g,
         exceptionMessage: "В имени допускается только латиница или кириллица, первая буква должна быть заглавной, без пробелов и без цифр, без спецсимволов!",
     },
-    second_name: {
+    secondName: {
         regExp: /^[A-ZА-ЯЁ][A-Za-zА-Яа-яёЁ-]+$/g,
         exceptionMessage: "В фамилии допускается только латиница или кириллица, первая буква должна быть заглавной, без пробелов и без цифр, без спецсимволов!",
     },

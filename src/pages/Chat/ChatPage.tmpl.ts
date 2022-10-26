@@ -10,7 +10,7 @@ export default `
             </div>
         </div>
         
-        <!--<div id="chatMessageInputTitle" class="chat-block__empty-chat-dialog"></div>-->
+        <!--<div class="chat-block__empty-chat-dialog"></div>-->
         
         <div class="chat-block__chat-dialog">
             {{{chatHeader}}}

@@ -2,7 +2,7 @@
 export default `
     <div {{{cssClasses}}}>
         {{content}}
-        <div>{{time}}</div>
+        <data>{{time}}</data>
     </div>
 `
 

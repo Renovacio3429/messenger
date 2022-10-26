@@ -6,11 +6,12 @@ import {Form} from "../../components/Form/Form";
 import {Input} from "../../components/Input/Input";
 import {Button} from "../../components/Button/Button";
 import {Message} from "../../components/Message/Message";
+import {Wrapper} from "../../components/Wrapper/Wrapper";
 import {chatPageCssProps} from "./ChatPageCssProps";
 import {dropDownFooter, dropDownHeader} from "./ChatDropdowns";
-import {Wrapper} from "../../components/Wrapper/Wrapper";
+import {ChatPageType} from "./ChatPage";
 
-export const chatPageProps: object = {
+export const chatPageProps: ChatPageType = {
     sidebarHeader: new SidebarHeader(),
     contacts: [
         new Contact({
@@ -19,7 +20,7 @@ export const chatPageProps: object = {
         }),
     ],
     chatHeader: new DialogHeader({
-        name: "Алейксей",
+        name: "Алексей",
         button: new Button({
             events: {
               click: () => dropDownHeader.showBlock(),
@@ -66,6 +67,7 @@ export const chatPageProps: object = {
         }),
         new Message({
             content: "=)",
+
             cssClasses: chatPageCssProps.messageQueryCss,
         }),
     ],

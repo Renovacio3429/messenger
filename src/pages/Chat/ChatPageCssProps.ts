@@ -1,6 +1,6 @@
 import {setCssClasses} from "../../components/CssClasses/CssClasses";
 
-export const chatPageCssProps = {
+export const chatPageCssProps: Record<string, string> = {
     formCss: setCssClasses({
         classes: ["chat-dialog-form", "form"],
     }),

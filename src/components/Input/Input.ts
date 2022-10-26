@@ -1,21 +1,32 @@
 import Block from "../../core/Block";
 import template from "./Input.tmpl";
-import {validateData} from "../../service/ValidateService";
+import {validComparator} from "../../service/ValidateService";
 import {LabelError} from "../LabelError/LabelError";
 import {setCssClasses} from "../CssClasses/CssClasses";
 
-export class Input extends Block {
+type InputType = {
+    cssClasses?: string,
+    fieldName: string,
+    type: string,
+    placeholder?: string,
+    disabled?: boolean,
+    events?: {
+        click: () => void,
+    }
+}
 
-    public init() {
+export class Input extends Block<InputType> {
+
+    protected init() {
         const validActions: Record<string, () => void> =  {
-            blur: this.validateInputData.bind(this),
-            focus: this.validateInputData.bind(this),
-            input: this.validateInputData.bind(this),
+            blur: this.validateInputFormData.bind(this),
+            focus: this.validateInputFormData.bind(this),
+            input: this.validateInputFormData.bind(this),
         }
 
         if (this.props.events) {
             Object.keys(validActions).forEach((eventName) => {
-                this.props.events[eventName] = validActions[eventName];
+                this.setProps({eventName: validActions[eventName]});
             });
         } else {
             this.props.events = validActions;
@@ -26,10 +37,10 @@ export class Input extends Block {
         return this.compile(template, this.props);
     }
 
-    private validateInputData() {
+    private validateInputFormData() {
         const element = this.element as HTMLInputElement;
-        if (element.type == "text" || element.type == "password") {
-            const errorMessage = validateData(element);
+        if (element.type === "text" || element.type === "password") {
+            const errorMessage = validComparator(element);
             const dangerClass = "danger";
             const errorClass = `valid-error-${element.name}-${this.id}`;
             const getErrorElements = () => document.getElementsByClassName(errorClass);
@@ -47,7 +58,7 @@ export class Input extends Block {
         }
     }
 
-    private getErrorElement(errorMessage: string, ...cssClasses: string[]): Block {
+    private getErrorElement(errorMessage: string, ...cssClasses: string[]): Block<Record<string, any>> {
         return new LabelError({
             cssClasses: setCssClasses({
                 classes: [...cssClasses],

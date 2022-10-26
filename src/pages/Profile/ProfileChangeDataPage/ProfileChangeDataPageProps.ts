@@ -4,10 +4,11 @@ import {Label} from "../../../components/Label/Label";
 import {Input} from "../../../components/Input/Input";
 import {Button} from "../../../components/Button/Button";
 import {Avatar} from "../../../components/Avatar/Avatar";
-import {profilePageCssProps} from "../ProfilePageCssProps";
 import {Wrapper} from "../../../components/Wrapper/Wrapper";
+import {profilePageCssProps} from "../ProfilePageCssProps";
+import {ProfileChangeDataPageType} from "./ProfileChangeDataPage";
 
-export const profileChangeDataPageProps: object = {
+export const profileChangeDataPageProps: ProfileChangeDataPageType = {
     sidebarButton: new Button({
         cssClasses: profilePageCssProps.sidebarCss,
         events: {
@@ -34,7 +35,6 @@ export const profileChangeDataPageProps: object = {
                     }),
                     new Wrapper({
                         content: new Input({
-                            title: "Почта",
                             type: "text",
                             fieldName: "email",
                             cssClasses: profilePageCssProps.inputCss,
@@ -53,7 +53,6 @@ export const profileChangeDataPageProps: object = {
                     }),
                     new Wrapper({
                         content: new Input({
-                            title: "Логин",
                             type: "text",
                             fieldName: "login",
                             cssClasses: profilePageCssProps.inputCss,
@@ -72,7 +71,6 @@ export const profileChangeDataPageProps: object = {
                     }),
                     new Wrapper({
                         content: new Input({
-                            title: "Имя",
                             type: "text",
                             fieldName: "first_name",
                             cssClasses: profilePageCssProps.inputCss,
@@ -91,7 +89,6 @@ export const profileChangeDataPageProps: object = {
                     }),
                     new Wrapper({
                         content: new Input({
-                            title: "Фамилия",
                             type: "text",
                             fieldName: "second_name",
                             cssClasses: profilePageCssProps.inputCss,
@@ -110,7 +107,6 @@ export const profileChangeDataPageProps: object = {
                     }),
                     new Wrapper({
                         content: new Input({
-                            title: "Имя в чате",
                             type: "text",
                             fieldName: "display_name",
                             cssClasses: profilePageCssProps.inputCss,
@@ -129,7 +125,6 @@ export const profileChangeDataPageProps: object = {
                     }),
                     new Wrapper({
                         content: new Input({
-                            title: "Телефон",
                             type: "text",
                             fieldName: "phone",
                             cssClasses: profilePageCssProps.inputCss,

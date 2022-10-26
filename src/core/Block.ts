@@ -1,10 +1,9 @@
-
 import {v4 as makeUUID} from 'uuid';
 import Handlebars from "handlebars";
 import EventBus from "./EventBus";
 
-export default class Block {
-    static EVENTS = {
+export default abstract class Block<Props extends Record<string, any>> {
+    private static EVENTS = {
         INIT: "init",
         FLOW_CDM: "flow:component-did-mount",
         FLOW_CDU: "flow:component-did-update",
@@ -13,11 +12,11 @@ export default class Block {
 
     public id: string = makeUUID();
     protected props: Record<string, any>;
-    protected children: Record<string, Block>;
+    protected children: Record<string, Block<Props>>;
     private eventBus: () => EventBus;
     private _element: HTMLElement | null = null;
 
-    constructor(propsWithChildren: object = {} ) {
+    constructor(propsWithChildren?: Props) {
         const eventBus = new EventBus();
         const {props, children} = this._getChildrenAndProps(propsWithChildren);
         this.children = children;
@@ -27,7 +26,7 @@ export default class Block {
         eventBus.emit(Block.EVENTS.INIT);
     }
 
-    private _getChildrenAndProps(childrenAndProps: any = {}) {
+    private _getChildrenAndProps(childrenAndProps: any = {}): any {
         const props: Record<string, any> = {};
         const children: Record<string, any> = {};
 
@@ -43,7 +42,7 @@ export default class Block {
     }
 
     private _addEvents() {
-        const {events = {}} = this.props as {events: Record<string, () => void>};
+        const {events = {}} = this.props as {events: Record<string, any>};
 
         Object.keys(events).forEach((eventName) => {
             this._element?.addEventListener(eventName, events[eventName]);
@@ -62,38 +61,40 @@ export default class Block {
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
 
-    protected init() {}
+    protected init(): void {}
 
-    private _componentDidMount() {
+    private _componentDidMount(): void {
         this.componentDidMount();
     }
 
-    protected componentDidMount() {}
+    protected componentDidMount(): void {}
 
     public dispatchComponentDidMount() {
         this.eventBus().emit(Block.EVENTS.FLOW_CDM);
     }
 
-    private _componentDidUpdate(oldProps?: any, newProps?: any) {
+    private _componentDidUpdate(oldProps?: Props, newProps?: Props): void {
         if (this.componentDidUpdate(oldProps, newProps)) {
             this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
         }
     }
 
-    protected componentDidUpdate(oldProps: any, newProps: any) {
+    protected componentDidUpdate(oldProps?: Props, newProps?: Props): boolean {
         return true;
     }
 
-    public setProps = (nextProps: any) => {
-        if (!nextProps) return;
+    public setProps = (nextProps: Record<string, any>) => {
+        if (!nextProps) {
+            return;
+        }
         Object.assign(this.props, nextProps);
     };
 
-    get element() {
+    public get element(): HTMLElement | null {
         return this._element;
     }
 
-    private _render() {
+    private _render(): void {
         const block = this.render();
         const newElement = block.firstElementChild as HTMLElement;
 
@@ -102,7 +103,7 @@ export default class Block {
         this._addEvents();
     }
 
-    protected compile(template: string, context: any) {
+    protected compile(template: string, context: any): DocumentFragment {
         const propsAndStubs = {...context};
 
         Object.entries(this.children).forEach(([key, child]) => {
@@ -149,39 +150,38 @@ export default class Block {
         return this.element;
     }
 
-    private _makePropsProxy(props: Record<string, any>) {
-        const self = this;
+    private _makePropsProxy(props: Record<string, any>): Record<string, any> {
         return new Proxy(props, {
-            get(target, prop: string) {
-                const value = target[prop];
+            get: (target: Record<string, any>, prop: string) => {
+                const value: any = target[prop];
                 return typeof value === "function" ? value.bind(target) : value;
             },
-            set(target, prop: string, value) {
-                const oldTarget = { ...target };
+            set: (target: Record<string, any>, prop: string, value) => {
+                const oldTarget: Record<string, any> = {...target};
                 target[prop] = value;
-                self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
+                this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
                 return true;
             },
 
-            deleteProperty() {
+            deleteProperty(): boolean {
                 throw new Error("Access Denied!");
             },
         });
     }
 
-    public showFlex() {
+    public showFlex(): void {
         this.getContent()!.style.display = "flex";
     }
 
-    public showBlock() {
+    public showBlock(): void {
         this.getContent()!.style.display = "block";
     }
 
-    public hide() {
+    public hide(): void {
         this.getContent()!.style.display = "hide";
     }
 
-    public none() {
+    public none(): void {
         this.getContent()!.style.display = "none";
     }
 }

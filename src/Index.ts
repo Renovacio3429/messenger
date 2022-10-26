@@ -3,9 +3,8 @@ import Block from "./core/Block";
 
 document.addEventListener('DOMContentLoaded', () => {
    const app: HTMLElement | null = document.getElementById('app');
+   const page: Block<any> | undefined = routers[window.location.pathname] || routers["/pageNotFound"];
 
-   let page: Block | undefined = routers[window.location.pathname];
-   page = page ? page : routers["/pageNotFound"];
-
-   app?.append(<Node>page.getContent());
+   if (page)
+       app?.append(<Node>page.getContent());
 });

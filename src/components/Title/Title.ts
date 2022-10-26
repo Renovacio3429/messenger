@@ -1,7 +1,13 @@
 import Block from "../../core/Block";
 import template from "./Title.tmpl";
 
-export class Title extends Block {
+type TitleType = {
+    level: string,
+    cssClasses?: string,
+    title: string,
+}
+
+export class Title extends Block<TitleType> {
     public render(): DocumentFragment {
         return this.compile(template, this.props);
     }

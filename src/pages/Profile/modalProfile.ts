@@ -5,10 +5,11 @@ import {Button} from "../../components/Button/Button";
 import {Label} from "../../components/Label/Label";
 import {profilePageCssProps} from "./ProfilePageCssProps";
 
-export const modal = new Modal({
+export const modal: Modal = new Modal({
     content: [
         new Title({
             title: "Загрузите файл",
+            level: "2",
         }),
         new Link({
             link: "/profile",
