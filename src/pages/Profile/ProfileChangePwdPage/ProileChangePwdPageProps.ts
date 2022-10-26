@@ -2,11 +2,12 @@ import {Form} from "../../../components/Form/Form";
 import {InputFieldset} from "../../../components/InputFieldset/InputFieldset";
 import {Label} from "../../../components/Label/Label";
 import {Input} from "../../../components/Input/Input";
-import {profilePageCssProps} from "../ProfilePageCssProps";
 import {Button} from "../../../components/Button/Button";
 import {Avatar} from "../../../components/Avatar/Avatar";
+import {profilePageCssProps} from "../ProfilePageCssProps";
+import {ProfileChangePwdPageType} from "./ProfileChangePwdPage";
 
-export const profileChangePwdPageProps: object = {
+export const profileChangePwdPageProps: ProfileChangePwdPageType = {
     sidebarButton: new Button({
         cssClasses: profilePageCssProps.sidebarCss,
         events: {
@@ -32,7 +33,6 @@ export const profileChangePwdPageProps: object = {
                         fieldName: "oldPassword",
                     }),
                     new Input({
-                        title: "Старый пароль",
                         type: "password",
                         fieldName: "oldPassword",
                         cssClasses: profilePageCssProps.inputCss,
@@ -48,7 +48,6 @@ export const profileChangePwdPageProps: object = {
                         fieldName: "newPassword",
                     }),
                     new Input({
-                        title: "Новый пароль",
                         type: "password",
                         fieldName: "newPassword",
                         cssClasses: profilePageCssProps.inputCss,
@@ -64,7 +63,6 @@ export const profileChangePwdPageProps: object = {
                         fieldName: "newPasswordSecond",
                     }),
                     new Input({
-                        title: "Повторите новый пароль",
                         type: "password",
                         fieldName: "newPasswordSecond",
                         cssClasses: profilePageCssProps.inputCss,

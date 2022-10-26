@@ -1,6 +1,6 @@
 import {setCssClasses} from "../../components/CssClasses/CssClasses";
 
-export const signInPageCssProps = {
+export const signInPageCssProps: Record<string, string> = {
     fieldsetCss: setCssClasses({
         classes: ["fieldset", "fieldset-login"],
     }),

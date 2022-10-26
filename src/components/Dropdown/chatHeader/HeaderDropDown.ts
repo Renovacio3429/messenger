@@ -1,7 +1,7 @@
 import Block from "../../../core/Block";
 import template from "./HeaderDropDown.tmpl";
 
-export class HeaderDropDown extends Block {
+export class HeaderDropDown extends Block<any> {
 
     public init() {
         this.props.events = {

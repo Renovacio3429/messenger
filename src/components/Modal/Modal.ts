@@ -1,8 +1,11 @@
 import Block from "../../core/Block";
 import template from "./Modal.tmpl";
 
-export class Modal extends Block {
+type ModalType = {
+    content: Block<any>[]
+}
 
+export class Modal extends Block<ModalType> {
     public init() {
         this.props.events = {
             click: () => this.none(),

@@ -1,6 +1,6 @@
 import {setCssClasses} from "../../components/CssClasses/CssClasses";
 
-export const profilePageCssProps = {
+export const profilePageCssProps: Record<string, string> = {
     fieldsetCss: setCssClasses({
         classes: ["fieldset", "bottom-border", "profile-row-wrap"],
     }),

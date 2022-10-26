@@ -3,13 +3,15 @@ import {Form} from "../../components/Form/Form";
 import {InputFieldset} from "../../components/InputFieldset/InputFieldset";
 import {Button} from "../../components/Button/Button";
 import {Link} from "../../components/Link/Link";
-import {loginPageCssProps} from "./LoginPageCssProps";
 import {Label} from "../../components/Label/Label";
 import {Input} from "../../components/Input/Input";
+import {loginPageCssProps} from "./LoginPageCssProps";
+import {LoginPageType} from "./LoginPage";
 
-export const loginPageProps: object = {
+export const loginPageProps: LoginPageType = {
     title: new Title({
         title: "Вход",
+        level: "2",
         cssClasses: loginPageCssProps.titleCss,
     }),
     content: new Form({
@@ -19,7 +21,6 @@ export const loginPageProps: object = {
                 cssClasses: loginPageCssProps.fieldsetCss,
                 content: [
                     new Input({
-                        title: "Логин",
                         type: "text",
                         fieldName: "login",
                         cssClasses: loginPageCssProps.inputCss,
@@ -35,7 +36,6 @@ export const loginPageProps: object = {
                 cssClasses: loginPageCssProps.fieldsetCss,
                 content: [
                     new Input({
-                        title: "Пароль",
                         type: "password",
                         fieldName: "password",
                         cssClasses: loginPageCssProps.inputCss,

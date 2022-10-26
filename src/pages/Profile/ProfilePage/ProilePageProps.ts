@@ -4,12 +4,13 @@ import {LinkBox} from "../../../components/LinkBox/LinkBox";
 import {Link} from "../../../components/Link/Link";
 import {Label} from "../../../components/Label/Label";
 import {Input} from "../../../components/Input/Input";
-import {profilePageCssProps} from "../ProfilePageCssProps";
 import {Button} from "../../../components/Button/Button";
 import {Avatar} from "../../../components/Avatar/Avatar";
 import {modal} from "../modalProfile";
+import {profilePageCssProps} from "../ProfilePageCssProps";
+import {ProfilePageType} from "./ProfilePage";
 
-export const profilePageProps: object = {
+export const profilePageProps: ProfilePageType = {
     sidebarButton: new Button({
         cssClasses: profilePageCssProps.sidebarCss,
         events: {
@@ -38,7 +39,6 @@ export const profilePageProps: object = {
                         fieldName: "email",
                     }),
                     new Input({
-                        title: "Почта",
                         type: "text",
                         fieldName: "email",
                         cssClasses: profilePageCssProps.inputCss,
@@ -55,7 +55,6 @@ export const profilePageProps: object = {
                         fieldName: "login",
                     }),
                     new Input({
-                        title: "Логин",
                         type: "text",
                         fieldName: "login",
                         cssClasses: profilePageCssProps.inputCss,
@@ -72,7 +71,6 @@ export const profilePageProps: object = {
                         fieldName: "first_name",
                     }),
                     new Input({
-                        title: "Имя",
                         type: "text",
                         fieldName: "first_name",
                         cssClasses: profilePageCssProps.inputCss,
@@ -87,10 +85,8 @@ export const profilePageProps: object = {
                     new Label({
                         title: "Фамилия",
                         fieldName: "second_name",
-                        disabled: true,
                     }),
                     new Input({
-                        title: "Фамилия",
                         type: "text",
                         fieldName: "second_name",
                         cssClasses: profilePageCssProps.inputCss,
@@ -107,7 +103,6 @@ export const profilePageProps: object = {
                         fieldName: "display_name",
                     }),
                     new Input({
-                        title: "Имя в чате",
                         type: "text",
                         fieldName: "display_name",
                         cssClasses: profilePageCssProps.inputCss,
@@ -124,7 +119,6 @@ export const profilePageProps: object = {
                         fieldName: "phone",
                     }),
                     new Input({
-                        title: "Телефон",
                         type: "text",
                         fieldName: "phone",
                         cssClasses: profilePageCssProps.inputCss,

@@ -6,10 +6,12 @@ import {Link} from "../../components/Link/Link";
 import {signInPageCssProps} from "./SignInPageCssProps";
 import {Input} from "../../components/Input/Input";
 import {Label} from "../../components/Label/Label";
+import {SignInPageType} from "./SignInPage";
 
-export const signInPageProps: Record<string, object> = {
+export const signInPageProps: SignInPageType = {
     title: new Title({
         title: "Регистрация",
+        level: "2",
         cssClasses: signInPageCssProps.titleCss,
     }),
     content: new Form({
@@ -19,7 +21,6 @@ export const signInPageProps: Record<string, object> = {
                 cssClasses: signInPageCssProps.fieldsetCss,
                 content: [
                     new Input({
-                        title: "Почта",
                         type: "text",
                         fieldName: "email",
                         cssClasses: signInPageCssProps.inputCss,
@@ -35,7 +36,6 @@ export const signInPageProps: Record<string, object> = {
                 cssClasses: signInPageCssProps.fieldsetCss,
                 content: [
                     new Input({
-                        title: "Логин",
                         type: "text",
                         fieldName: "login",
                         cssClasses: signInPageCssProps.inputCss,
@@ -51,7 +51,6 @@ export const signInPageProps: Record<string, object> = {
                 cssClasses: signInPageCssProps.fieldsetCss,
                 content: [
                     new Input({
-                        title: "Имя",
                         type: "text",
                         fieldName: "first_name",
                         cssClasses: signInPageCssProps.inputCss,
@@ -67,7 +66,6 @@ export const signInPageProps: Record<string, object> = {
                 cssClasses: signInPageCssProps.fieldsetCss,
                 content: [
                     new Input({
-                        title: "Фамилия",
                         type: "text",
                         fieldName: "second_name",
                         cssClasses: signInPageCssProps.inputCss,
@@ -83,7 +81,6 @@ export const signInPageProps: Record<string, object> = {
                 cssClasses: signInPageCssProps.fieldsetCss,
                 content: [
                     new Input({
-                        title: "Пароль",
                         type: "password",
                         fieldName: "password",
                         cssClasses: signInPageCssProps.inputCss,
@@ -99,7 +96,6 @@ export const signInPageProps: Record<string, object> = {
                 cssClasses: signInPageCssProps.fieldsetCss,
                 content: [
                     new Input({
-                        title: "Пароль (ещё раз)",
                         type: "password",
                         fieldName: "checkPassword",
                         cssClasses: signInPageCssProps.inputCss,

@@ -1,10 +1,18 @@
 import Block from "../../core/Block";
 import template from "./Form.tmpl";
 import {Input} from "../Input/Input";
+import {Button} from "../Button/Button";
 
-export class Form extends Block {
+type FormType = {
+    cssClasses?: string,
+    action: string,
+    inputs?: Block<any>[],
+    button?: Button,
+}
 
-    init() {
+export class Form extends Block<FormType> {
+
+    protected init() {
         const submit = this.children.button;
         if (submit)
             submit.setProps({
@@ -23,16 +31,16 @@ export class Form extends Block {
         event.preventDefault();
 
         const inputs = this.children.inputs;
-        const data: Record<string, string> = {};
+        const inputFormJson: Record<string, string> = {};
 
         if (Array.isArray(inputs)) {
             inputs.forEach((input: Input) => {
                 const content = input.getContent()?.querySelector("input");
                 if (content)
-                    data[content.name] = content.value;
+                    inputFormJson[content.name] = content.value;
             });
         }
 
-        console.log(data);
+        console.log(inputFormJson);
     }
 }

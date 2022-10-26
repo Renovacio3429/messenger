@@ -17,7 +17,7 @@ import {profileChangeDataPageProps} from "./pages/Profile/ProfileChangeDataPage/
 import {profileChangePwdPageProps} from "./pages/Profile/ProfileChangePwdPage/ProileChangePwdPageProps";
 
 
-export const routers: Record<string, Block> = {
+export const routers: Record<string, Block<any>> = {
     "/": new LoginPage(loginPageProps),
     "/signIn": new SignInPage(signInPageProps),
     "/error": new ErrorPage(errorPageProps),

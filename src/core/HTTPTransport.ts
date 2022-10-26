@@ -4,7 +4,6 @@ type Options = {
     method?: string;
     data?: any;
     headers?: Record<string, string>;
-    timeout?: number;
 };
 
 enum Methods {
@@ -15,25 +14,25 @@ enum Methods {
 }
 
 export default class HTTPTransport {
-    get = (url: string, options: Options = {}) => {
+    public get = (url: string, options: Options = {}) => {
         const resultUrl = !options.data ? `${url}${queryStringify(options.data)}` : url;
 
-        return this.request(resultUrl, { ...options, method: Methods.GET }, options.timeout);
+        return this.request(resultUrl, { ...options, method: Methods.GET });
     };
 
-    post = (url: string, options: Options = {}) => {
-        return this.request(url, { ...options, method: Methods.POST }, options.timeout);
+    public post = (url: string, options: Options = {}) => {
+        return this.request(url, { ...options, method: Methods.POST });
     };
 
-    put = (url: string, options: Options = {}) => {
-        return this.request(url, { ...options, method: Methods.PUT }, options.timeout);
+    public put = (url: string, options: Options = {}) => {
+        return this.request(url, { ...options, method: Methods.PUT });
     };
 
-    delete = (url: string, options: Options = {}) => {
-        return this.request(url, { ...options, method: Methods.DELETE }, options.timeout);
+    public delete = (url: string, options: Options = {}) => {
+        return this.request(url, { ...options, method: Methods.DELETE });
     };
 
-    request = (url: string, options: Options = {}, timeout = 3000): Promise<XMLHttpRequest> => {
+    public request = (url: string, options: Options = {}, timeout = 3000): Promise<XMLHttpRequest> => {
         const { headers = {}, method, data } = options;
 
         return new Promise(function (resolve, reject) {
