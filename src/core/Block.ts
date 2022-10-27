@@ -11,8 +11,8 @@ export default abstract class Block<Props extends Record<string, any>> {
     };
 
     public id: string = makeUUID();
-    protected props: Record<string, any>;
-    protected children: Record<string, Block<Props>>;
+    protected props: Props;
+    protected children: Record<string, any>;
     private eventBus: () => EventBus;
     private _element: HTMLElement | null = null;
 
@@ -20,13 +20,13 @@ export default abstract class Block<Props extends Record<string, any>> {
         const eventBus = new EventBus();
         const {props, children} = this._getChildrenAndProps(propsWithChildren);
         this.children = children;
-        this.props = this._makePropsProxy(props);
+        this.props = this._makePropsProxy(<Props>props);
         this.eventBus = () => eventBus;
         this._registerEvents(eventBus);
         eventBus.emit(Block.EVENTS.INIT);
     }
 
-    private _getChildrenAndProps(childrenAndProps: any = {}): any {
+    private _getChildrenAndProps(childrenAndProps: Record<string, any> = {}): {props: Record<string, any>, children: Record<string, any> } {
         const props: Record<string, any> = {};
         const children: Record<string, any> = {};
 
@@ -42,7 +42,7 @@ export default abstract class Block<Props extends Record<string, any>> {
     }
 
     private _addEvents() {
-        const {events = {}} = this.props as {events: Record<string, any>};
+        const {events = {}} = this.props;
 
         Object.keys(events).forEach((eventName) => {
             this._element?.addEventListener(eventName, events[eventName]);
@@ -103,7 +103,7 @@ export default abstract class Block<Props extends Record<string, any>> {
         this._addEvents();
     }
 
-    protected compile(template: string, context: any): DocumentFragment {
+    protected compile(template: string, context: Record<string, any>): DocumentFragment {
         const propsAndStubs = {...context};
 
         Object.entries(this.children).forEach(([key, child]) => {
@@ -150,15 +150,15 @@ export default abstract class Block<Props extends Record<string, any>> {
         return this.element;
     }
 
-    private _makePropsProxy(props: Record<string, any>): Record<string, any> {
+    private _makePropsProxy(props: Props): Props {
         return new Proxy(props, {
-            get: (target: Record<string, any>, prop: string) => {
+            get: (target: Props, prop: string) => {
                 const value: any = target[prop];
                 return typeof value === "function" ? value.bind(target) : value;
             },
-            set: (target: Record<string, any>, prop: string, value) => {
-                const oldTarget: Record<string, any> = {...target};
-                target[prop] = value;
+            set: (target: Props, prop: string, value) => {
+                const oldTarget: Props = {...target};
+                target[prop as keyof typeof props] = value;
                 this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
                 return true;
             },
