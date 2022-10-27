@@ -7,6 +7,10 @@
 * <a href="https://nodejs.org/en/">NodeJS</a>
 * <a href="https://parceljs.org/">Parcel</a>
 * <a href="https://handlebarsjs.com/">Handlebars</a>
+* <a href="https://www.typescriptlang.org/">Typescript</a>
+* <a href="https://eslint.org/">Eslint</a>
+* <a href="https://stylelint.io/">Stylelint</a>
+
 
 ## Макет проекта
 
@@ -25,8 +29,6 @@
 
 ## Другие коммады
 
-`npm run clean` - комманда для очистки директори dist
-<br/>
 `npm run build`  - комманда для сборки проекта, компилирует проект в директорию dist, перед сборкой вылняется комманда <strong>clean</strong> 
 <br/>
 `npm run dev`  - комманда для разработки и отладки приложения в runtime, build выполнятеся автоматически, с последующим стартом на домене 'http://localhost:3000/', через комманду 
@@ -35,14 +37,15 @@
 ## Доступ к страницам
 
 Список страниц:
-* *index.html* 
-* *signin.html*
-* *chat.html*
-* *profile.html*
-* *page404.html*
-* *page500.html* 
+* *`/` - странтица входа в систему* 
+* *`/signIn` - страница регистрации в системе*
+* *`/error` - страница ошибки 500*
+* *`/pageNotFound` - страница ошибки 404*
+* *`/profile` - страница профиля пользователя системы*
+* *`/profile/changeData` - страница изменения данных профиля пользователя системы*
+* *`/profile/changePwd` - страница изменения пароля учетной записи пользователя системы*
+* *`/chat` - страница чата*
 <br>
-Стартует приложение на странице index.html, для прямого доступа к другой странице можно добавить ее название после порта сервера, например для доступа к странице page404.html, нужно ввести в адресную строку *http://localhost:3000/page404.html*
 
 ## Netlify
 

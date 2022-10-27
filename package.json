@@ -1,25 +1,36 @@
 {
   "name": "yandex-practicum-messenger",
   "version": "1.0.0",
-  "source": "src/pages/index.html",
+  "source": "src/index.html",
   "scripts": {
-    "start": "npm run build && node server.js",
+    "start": "node ./server.js",
     "dev": "npm run build && parcel -p 3000 --open",
-    "build": "npm run clean && parcel build src/pages/*.html",
-    "clean": "rm -rf dist/*"
+    "build": "parcel build src/index.html"
   },
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "9.8.8",
     "handlebars": "4.7.7",
     "parcel": "2.7.0",
     "postcss": "8.4.17",
-    "autoprefixer": "9.8.8"
+    "ts-node": "10.9.1",
+    "uuid": "8.3.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.40.1",
+    "@typescript-eslint/parser": "5.40.1",
+    "@types/handlebars": "4.1.0",
+    "@types/uuid": "8.3.4",
+    "eslint": "8.25.0",
+    "eslint-config-airbnb": "19.0.4",
+    "stylelint": "14.14.0",
+    "typescript": "4.8.4"
   },
   "browserslist": [
     "defaults and supports es6-module",
     "maintained node versions"
   ],
-  "engines" : {
-    "node" : ">=12.0.0"
+  "engines": {
+    "node": ">=12.0.0"
   }
 }
