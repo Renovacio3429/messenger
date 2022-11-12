@@ -274,14 +274,10 @@ main {
 	background-color: var(--light-blue-color);
 }
 
-.sidebar-contact-info {
+.sidebar-chat-info {
 	flex: auto;
 	padding-left: 10px;
 	display: flex;
-}
-
-.sidebar-message-info {
-	align-self: flex-start;
 }
 
 .chat-block__empty-chat-dialog {
@@ -321,7 +317,7 @@ main {
     height: 100%;
 	flex: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
 }
 
 .chat-dialog-header-actions-button {
@@ -419,7 +415,8 @@ main {
 .chat-header-avatar {
   	height: 34px;
   	width: 34px;
-  	background-color: var(--light-gray-color);
+    background-image: url('../../static/icon/chat-icon.png');
+    background-size: 100%;
   	border-radius: 50%;
   	display: inline-block;
 }
@@ -427,7 +424,8 @@ main {
 .sidebar-contact-avatar {
   	height: 47px;
   	width: 47px;
-  	background-color: var(--light-gray-color);;
+    background-image: url('../../static/icon/chat-icon.png');
+    background-size: 100%;
   	border-radius: 50%;
   	display: inline-block;
 }
@@ -536,6 +534,15 @@ main {
 	width: 280px;
 }
 
+.modal-close {
+    cursor: pointer;
+    border: none;
+    background-color: var(--white-color);
+    color: var(--gray-color);
+    align-self: flex-end;
+    font-size: 20px;
+}
+
 .text-right {
 	text-align: right;
 }
@@ -582,14 +589,8 @@ main {
 .avatar-button {
 	height: 130px;
 	width: 130px;
-	background: url('../../static/icon/empty-avatar-icon.svg') no-repeat;
 	border-radius: 65px;
 	border: none;
-}
-
-.avatar-button:hover,
-.avatar-button:focus {
-	background: url('../../static/icon/change-avatar-icon.svg') no-repeat;
 }
 
 .fieldset {
@@ -718,4 +719,23 @@ main {
     width: 250px;
     display: flex;
     flex-direction: column;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.chat-sidebar-header__profile-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.chat-sidebar-header__action-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

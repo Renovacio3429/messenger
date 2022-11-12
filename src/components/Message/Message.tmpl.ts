@@ -1,8 +1,7 @@
 // language=hbs
 export default `
-    <div {{{cssClasses}}}>
+    <div class="message-wrap {{#if isMine}}message-query{{else}}message-answer{{/if}}">
         {{content}}
-        <data>{{time}}</data>
     </div>
 `
 

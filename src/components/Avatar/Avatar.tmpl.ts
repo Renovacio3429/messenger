@@ -1,6 +1,4 @@
 // language=hbs
 export default `
-    <div {{{cssClasses}}}>
-        {{{input}}}
-    </div>
+    <img src="{{input}}" {{{cssClasses}}}/>
 `

@@ -20,7 +20,7 @@ export const fieldValidate: Record<string, {regExp: RegExp, exceptionMessage: st
         exceptionMessage: "Пароль должен содержать от 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра!",
     },
     phone: {
-        regExp: /^\+?d{10,15}$/g,
+        regExp: /^\+?\d{10,15}$/g,
         exceptionMessage: "Телефон должен содержать от 10 до 15 символов, состоит из цифр, может начинается с плюса.",
     },
     message: {

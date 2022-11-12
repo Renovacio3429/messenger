@@ -1,5 +1,5 @@
 export default class EventBus {
-    private readonly listeners: Record<string,((args: unknown[]) => void)[]>;
+    protected readonly listeners: Record<string,((args: unknown[]) => void)[]>;
 
     constructor() {
         this.listeners = {};
@@ -30,7 +30,7 @@ export default class EventBus {
         }
 
         this.listeners[event].forEach(function(listener) {
-            listener(args);
+            listener(...args);
         });
     }
 }

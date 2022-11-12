@@ -1,12 +1,15 @@
 import {Title} from "../../components/Title/Title";
-import {Form} from "../../components/Form/Form";
 import {InputFieldset} from "../../components/InputFieldset/InputFieldset";
 import {Button} from "../../components/Button/Button";
 import {Link} from "../../components/Link/Link";
 import {Label} from "../../components/Label/Label";
 import {Input} from "../../components/Input/Input";
+import {RoutesConfig} from "../../core/Router/RouterConfig";
+import {LoginForm} from "../../components/Forms/LoginForm";
 import {loginPageCssProps} from "./LoginPageCssProps";
 import {LoginPageType} from "./LoginPage";
+import AuthController from "../../controllers/AuthController";
+import Router from "../../core/Router/Router";
 
 export const loginPageProps: LoginPageType = {
     title: new Title({
@@ -14,8 +17,7 @@ export const loginPageProps: LoginPageType = {
         level: "2",
         cssClasses: loginPageCssProps.titleCss,
     }),
-    content: new Form({
-        action: "#",
+    content: new LoginForm({
         inputs: [
             new InputFieldset({
                 cssClasses: loginPageCssProps.fieldsetCss,
@@ -53,10 +55,15 @@ export const loginPageProps: LoginPageType = {
             cssClasses: loginPageCssProps.buttonCss,
         }),
         cssClasses: loginPageCssProps.formCss,
+        submitData: (data: any) => {
+            AuthController.signin(data);
+        },
     }),
     link: new Link({
         title: "Нет аккаута?",
-        link: "/signIn",
         cssClasses: loginPageCssProps.linkCss,
+        submitLink: () => {
+            Router.go(RoutesConfig.SignUp);
+        }
     }),
 };
