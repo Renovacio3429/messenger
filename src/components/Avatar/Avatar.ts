@@ -3,7 +3,10 @@ import template from "./Avatar.tmpl";
 
 type AvatarType = {
     cssClasses?: string;
-    input: Block<any>;
+    input?: string;
+    events?: {
+        click: () => void,
+    }
 };
 
 export class Avatar extends Block<AvatarType> {

@@ -1,39 +1,44 @@
-import {queryStringify} from "../utils/queryStringify";
-
-type Options = {
-    method?: string;
-    data?: any;
-    headers?: Record<string, string>;
-};
+import { queryStringify } from "../utils/queryStringify";
 
 enum Methods {
     GET = "GET",
     POST = "POST",
     PUT = "PUT",
     DELETE = "DELETE",
+    PATCH = "PATCH",
 }
 
 export default class HTTPTransport {
-    public get = (url: string, options: Options = {}) => {
-        const resultUrl = !options.data ? `${url}${queryStringify(options.data)}` : url;
+    public url: string;
 
+    constructor(url: string) {
+        this.url = url;
+    }
+
+    public get = (path: string, options: any = {}) => {
+        const resultUrl = options.data ? `${this.url}${path}${queryStringify(options.data)}` : `${this.url}${path}`;
         return this.request(resultUrl, { ...options, method: Methods.GET });
     };
 
-    public post = (url: string, options: Options = {}) => {
-        return this.request(url, { ...options, method: Methods.POST });
+    public post = (path: string, options: any) => {
+        return this.request(`${this.url}${path}`, { ...options, method: Methods.POST });
     };
 
-    public put = (url: string, options: Options = {}) => {
-        return this.request(url, { ...options, method: Methods.PUT });
+    public put = (path: string, options: any) => {
+        return this.request(`${this.url}${path}`, { ...options, method: Methods.PUT });
     };
 
-    public delete = (url: string, options: Options = {}) => {
-        return this.request(url, { ...options, method: Methods.DELETE });
+    public patch = (path: string, options: any) => {
+        return this.request(`${this.url}${path}`, { ...options, method: Methods.PATCH });
     };
 
-    public request = (url: string, options: Options = {}, timeout = 3000): Promise<XMLHttpRequest> => {
-        const { headers = {}, method, data } = options;
+    public delete = (path: string, options: any) => {
+        console.log(options)
+        return this.request(`${this.url}${path}`, { ...options, method: Methods.DELETE });
+    };
+
+    private request = (url: string, options: any): Promise<Response> => {
+        const { headers = {}, method, data, timeout = 3000, credentials = true } = options;
 
         return new Promise(function (resolve, reject) {
             if (!method) {
@@ -52,12 +57,19 @@ export default class HTTPTransport {
             });
 
             xhr.onload = () => {
-                resolve(xhr);
+                if (xhr.status < 400) {
+                    resolve(xhr.response);
+                } else {
+                    reject(xhr);
+                }
             };
 
             xhr.onabort = reject;
             xhr.onerror = reject;
             xhr.ontimeout = reject;
+
+            xhr.withCredentials = credentials;
+            xhr.responseType = "json";
 
             if (method === Methods.GET || !data) {
                 xhr.send();

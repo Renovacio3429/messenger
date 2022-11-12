@@ -1,7 +1,15 @@
 import Block from "../../../core/Block";
 import template from "./HeaderDropDown.tmpl";
+import {DropdownLink} from "../../DropdownLink/DropdownLink";
 
-export class HeaderDropDown extends Block<any> {
+export type HeaderDropDownType = {
+    dropdownLinks: DropdownLink[],
+    events?: {
+        click: () => void
+    };
+}
+
+export class HeaderDropDown extends Block<HeaderDropDownType> {
 
     public init() {
         this.props.events = {

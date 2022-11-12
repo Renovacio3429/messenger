@@ -1,8 +1,7 @@
 import Block from "../../core/Block";
 import template from "./Input.tmpl";
 import {validComparator} from "../../service/ValidateService";
-import {LabelError} from "../LabelError/LabelError";
-import {setCssClasses} from "../CssClasses/CssClasses";
+import {getErrorElement} from "../../utils/getErrorElement";
 
 type InputType = {
     cssClasses?: string,
@@ -29,6 +28,7 @@ export class Input extends Block<InputType> {
                 this.setProps({eventName: validActions[eventName]});
             });
         } else {
+            // @ts-ignore
             this.props.events = validActions;
         }
 
@@ -51,19 +51,10 @@ export class Input extends Block<InputType> {
             element.classList.remove(dangerClass);
 
             if (errorMessage) {
-                const errorEl = this.getErrorElement(errorMessage, dangerClass, errorClass);
+                const errorEl = getErrorElement(errorMessage, dangerClass, errorClass);
                 element.classList.add(dangerClass);
                 element.insertAdjacentHTML("afterend", <string>errorEl.getContent()?.outerHTML);
             }
         }
-    }
-
-    private getErrorElement(errorMessage: string, ...cssClasses: string[]): Block<Record<string, any>> {
-        return new LabelError({
-            cssClasses: setCssClasses({
-                classes: [...cssClasses],
-            }),
-            title: errorMessage,
-        });
     }
 }
