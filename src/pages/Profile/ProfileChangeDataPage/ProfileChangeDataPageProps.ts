@@ -9,6 +9,7 @@ import {modal} from "../modalProfile";
 import {ProfileChangeDataPageType} from "./ProfileChangeDataPage";
 import UserController from "../../../controllers/UserController";
 import {ProfileChangeDataForm} from "../../../components/Forms/ProfileChangeDataForm";
+import {UserType} from "../../../api/UserAPI";
 
 export const profileChangeDataPageProps: ProfileChangeDataPageType = {
     sidebarButton: new Button({
@@ -143,7 +144,7 @@ export const profileChangeDataPageProps: ProfileChangeDataPageType = {
         }),
         cssClasses: profilePageCssProps.formCss,
 
-        submitData: (data: any) => {
+        submitData: (data: UserType) => {
             UserController.updateUser(data);
         },
     }),

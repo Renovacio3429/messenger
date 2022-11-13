@@ -8,10 +8,12 @@ import {profileChangeDataPageProps} from "./ProfileChangeDataPageProps";
 import {withUser} from "../../../hocs/withUser";
 import store from "../../../core/Store";
 import {setProfileData} from "../setProfileData";
+import {Avatar} from "../../../components/Avatar/Avatar";
+import {Input} from "../../../components/Input/Input";
 
 export type ProfileChangeDataPageType = {
     sidebarButton?: Button,
-    avatar: Block<any>,
+    avatar: Avatar,
     content: Form,
     linkBox?: LinkBox,
     modal: Modal,
@@ -29,7 +31,7 @@ export class ProfileChangeDataPage extends Block<ProfileChangeDataPageType> {
         return this.compile(template, this.props);
     }
 
-    private setInputData(inputsArr: Block<any>[]): void {
+    private setInputData(inputsArr: Input[]): void {
         inputsArr.forEach(fieldset => {
             const content: HTMLInputElement | undefined | null = fieldset.getContent()?.querySelector("input");
             if (content) {
@@ -38,7 +40,7 @@ export class ProfileChangeDataPage extends Block<ProfileChangeDataPageType> {
         })
     }
 
-    private setAvatar(content: Block<any>): void {
+    private setAvatar(content: Avatar): void {
         if (store.getState().user.avatar) {
             content.setProps({
                 input: `https://ya-praktikum.tech/api/v2/resources${store.getState().user.avatar}`
@@ -47,5 +49,4 @@ export class ProfileChangeDataPage extends Block<ProfileChangeDataPageType> {
     }
 }
 
-// @ts-ignore
-export const ProfileChangeData = withUser(ProfileChangeDataPage);
+export const ProfileChangeData = withUser(ProfileChangeDataPage as typeof Block);

@@ -12,6 +12,7 @@ import {addUserChatModal} from "./addUserChatModal";
 import {FooterDropDown} from "../Dropdown/chatFooter/FooterDropDown";
 import {HeaderDropDown} from "../Dropdown/chatHeader/HeaderDropDown";
 import {DropdownLink} from "../DropdownLink/DropdownLink";
+import {MessageType} from "../Message/Message";
 
 const dropDownFooter = new FooterDropDown();
 const dropDownHeader = new HeaderDropDown({
@@ -56,9 +57,9 @@ export const MessengerProps: MessengerComponentType = {
                 cssClasses: chatPageCssProps.buttonFormCss,
             }),
             cssClasses: chatPageCssProps.formCss,
-            submitData: (data: any) => {
+            submitData: (data: MessageType) => {
                 if (ChatInfo.chatId && data) {
-                    MessagesController.sendMessage(ChatInfo.chatId , data.message);
+                    MessagesController.sendMessage(ChatInfo.chatId , data.content);
                 }
             },
         }),

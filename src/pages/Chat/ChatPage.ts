@@ -4,13 +4,13 @@ import {SidebarHeader} from "../../components/SidebarHeader/SidebarHeader";
 import {Modal} from "../../components/Modal/Modal";
 import ChatController from "../../controllers/ChatController";
 import {chatPageProps} from "./ChatPageProps";
-import {ChatsList} from "../../components/ChatList/ChatList";
+import {ChatListComponent, ChatsList} from "../../components/ChatList/ChatList";
 import {Messenger} from "../../components/Messenger/Messenger";
 import {withState} from "../../hocs/withState";
 
 export type ChatPageType = {
     sidebarHeader: SidebarHeader,
-    chatList?: typeof ChatsList,
+    chatList?: ChatListComponent,
     addChatModal: Modal,
     addUserChatModal: Modal,
     removeUserChatModal: Modal,
@@ -26,7 +26,7 @@ export class ChatPage extends Block<ChatPageType> {
         });
 
         ChatController.fetchChats().finally(() => {
-            (this.children.chatList as Block<any>).setProps({
+            (this.children.chatList as ChatListComponent).setProps({
                 isChatsLoaded: true,
             });
         });
@@ -39,5 +39,4 @@ export class ChatPage extends Block<ChatPageType> {
     }
 }
 
-// @ts-ignore
-export const Chat = withState(ChatPage);
+export const Chat = withState(ChatPage as typeof Block);

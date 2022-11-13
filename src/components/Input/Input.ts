@@ -1,7 +1,7 @@
 import Block from "../../core/Block";
 import template from "./Input.tmpl";
 import {validComparator} from "../../service/ValidateService";
-import {getErrorElement} from "../../utils/getErrorElement";
+import {getErrorElement} from "../../utils/elementHepler";
 
 type InputType = {
     cssClasses?: string,
@@ -9,9 +9,7 @@ type InputType = {
     type: string,
     placeholder?: string,
     disabled?: boolean,
-    events?: {
-        click: () => void,
-    }
+    events?: Record<string, () => void>,
 }
 
 export class Input extends Block<InputType> {
@@ -28,7 +26,6 @@ export class Input extends Block<InputType> {
                 this.setProps({eventName: validActions[eventName]});
             });
         } else {
-            // @ts-ignore
             this.props.events = validActions;
         }
 

@@ -1,9 +1,10 @@
 // language=hbs
 export default `
     <div class="message-wrap {{#if isMine}}message-query{{else}}message-answer{{/if}}">
-        {{content}}
+        {{message}}
     </div>
 `
+
 
 
 

@@ -1,7 +1,7 @@
 import {Form} from "./Form";
 import {Input} from "../Input/Input";
 import {inputDataExists, inputSuccessValidExists, passwordCheckValidate} from "../../service/ValidateService";
-import {getErrorElement} from "../../utils/getErrorElement";
+import {insertErrorEl, removeErrorEl} from "../../utils/elementHepler";
 
 export class SignInForm extends Form {
 
@@ -14,10 +14,9 @@ export class SignInForm extends Form {
 
         const dangerClass = "danger";
         const errorClass = `valid-error-checkPassword-${this.id}`;
-        const getErrorElements = () => document.getElementsByClassName(errorClass);
 
-        let password = undefined;
-        let checkPassword = undefined;
+        let password = '';
+        let checkPassword = '';
         let checkPasswordInput: any = undefined;
 
         if (Array.isArray(inputs)) {
@@ -25,9 +24,7 @@ export class SignInForm extends Form {
             inputs.forEach((input: Input) => {
                 const content: HTMLInputElement | HTMLInputElement | undefined | null = input.getContent()?.querySelector("input");
 
-
                 if (content) {
-
                     inputFormJson[content.name] = content.value;
 
                     switch (content.name) {
@@ -42,17 +39,11 @@ export class SignInForm extends Form {
                 }
             });
 
-            if (checkPasswordInput) {
-                Array.from(getErrorElements()).forEach(el => el.remove());
-                checkPasswordInput.classList.remove(dangerClass);
-            }
-
+            removeErrorEl(checkPasswordInput, errorClass, dangerClass);
 
             if (inputDataExists(inputs) && inputSuccessValidExists(inputs)) {
                 if (!passwordCheckValidate(password, checkPassword)) {
-                    const errorEl = getErrorElement("Пароли не совпадают", dangerClass, errorClass);
-                    checkPasswordInput.classList.add(dangerClass);
-                    checkPasswordInput.insertAdjacentHTML("afterend", <string>errorEl.getContent()?.outerHTML);
+                    insertErrorEl(checkPasswordInput, "Пароли не совпадают", dangerClass, errorClass);
                     return;
                 }
 

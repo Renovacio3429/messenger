@@ -13,6 +13,7 @@ import {profilePageCssProps} from "../ProfilePageCssProps";
 import {ProfilePageType} from "./ProfilePage";
 import router from "../../../core/Router/Router";
 import AuthController from "../../../controllers/AuthController";
+import {UserType} from "../../../api/UserAPI";
 
 export const profilePageProps: ProfilePageType = {
     sidebarButton: new Button({
@@ -129,9 +130,7 @@ export const profilePageProps: ProfilePageType = {
                 ],
             }),
         ],
-        submitData: (data: any) => {
-            console.log(data)
-        },
+        submitData: (data: UserType) => ({}),
     }),
     linkBox: new LinkBox({
         links: [

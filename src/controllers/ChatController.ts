@@ -46,9 +46,13 @@ export class ChatController {
     }
 
     async delete(id: string): Promise<void> {
-        await this.api.delete(id);
-        this.fetchChats();
-        store.set("selectedChat", "");
+        try {
+            await this.api.delete(id);
+            this.fetchChats();
+            store.set("selectedChat", "");
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     getToken(id: number): Promise<unknown> {

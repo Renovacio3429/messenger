@@ -35,7 +35,7 @@ export const addUserChatModal: Modal = new Modal({
                 title: "Добавить",
                 cssClasses: profilePageCssProps.modalButtonCss,
             }),
-            submitData: (data: any) => {
+            submitData: (data: {title: string}) => {
 
                 const login: string = data.title;
 
