@@ -33,7 +33,7 @@ export const addChatModal: Modal = new Modal({
                 title: "Добавить",
                 cssClasses: profilePageCssProps.modalButtonCss,
             }),
-            submitData: (data: any) => {
+            submitData: (data: {title: string}) => {
 
                 const nameChat: string = data.title;
 

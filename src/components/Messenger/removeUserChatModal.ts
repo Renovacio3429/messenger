@@ -35,7 +35,7 @@ export const removeUserChatModal: Modal = new Modal({
                 title: "Удалить",
                 cssClasses: profilePageCssProps.modalButtonCss,
             }),
-            submitData: (data: any) => {
+            submitData: (data: {title: string}) => {
 
                 const login = data.title;
 

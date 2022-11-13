@@ -9,7 +9,7 @@ type ChatListComponentType = {
     chats: ChatType[]
 }
 
-class ChatListComponent extends Block<ChatListComponentType> {
+export class ChatListComponent extends Block<ChatListComponentType> {
 
     protected init () {
         this.children.chats = this.createChats(this.props);
@@ -38,5 +38,4 @@ class ChatListComponent extends Block<ChatListComponentType> {
     }
 }
 
-// @ts-ignore
-export const ChatsList = withChats(ChatListComponent);
+export const ChatsList = withChats(ChatListComponent as typeof Block);

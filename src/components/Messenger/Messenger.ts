@@ -59,6 +59,4 @@ const withSelectedChatMessages = withStore(state => {
     };
 });
 
-
-// @ts-ignore
-export const Messenger = withSelectedChatMessages(MessengerComponent);
+export const Messenger = withSelectedChatMessages(MessengerComponent as typeof Block);

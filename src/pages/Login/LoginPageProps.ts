@@ -10,6 +10,7 @@ import {loginPageCssProps} from "./LoginPageCssProps";
 import {LoginPageType} from "./LoginPage";
 import AuthController from "../../controllers/AuthController";
 import Router from "../../core/Router/Router";
+import {SignUpType} from "../../api/AuthAPI";
 
 export const loginPageProps: LoginPageType = {
     title: new Title({
@@ -55,7 +56,7 @@ export const loginPageProps: LoginPageType = {
             cssClasses: loginPageCssProps.buttonCss,
         }),
         cssClasses: loginPageCssProps.formCss,
-        submitData: (data: any) => {
+        submitData: (data: SignUpType) => {
             AuthController.signin(data);
         },
     }),

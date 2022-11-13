@@ -15,7 +15,7 @@ class UsersController {
             store.set("user", response);
             Router.go(RoutesConfig.Profile);
         } catch (e) {
-            console.log(e);
+            console.error(e);
         }
     }
 
@@ -24,7 +24,7 @@ class UsersController {
             const response = await this.api.changeAvatar(data);
             store.set("user", response);
         } catch (e) {
-            console.log(e);
+            console.error(e);
         }
     }
 
@@ -33,7 +33,7 @@ class UsersController {
             await this.api.updatePassword(data);
             Router.go(RoutesConfig.Profile);
         } catch (e) {
-            console.log(e);
+            console.error(e);
         }
     }
 
@@ -44,7 +44,7 @@ class UsersController {
                 return users;
             }
         } catch (e) {
-            console.log(e);
+            console.error(e);
         }
     }
 }

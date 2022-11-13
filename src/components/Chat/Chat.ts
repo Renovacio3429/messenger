@@ -17,5 +17,4 @@ export class ChatComponent extends Block<ChatType> {
     }
 }
 
-// @ts-ignore
-export const Chat = withSelectedChat(ChatComponent);
+export const Chat = withSelectedChat(ChatComponent as typeof Block);

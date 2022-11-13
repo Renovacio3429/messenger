@@ -22,5 +22,4 @@ export class SignUpPage extends Block<SignInPageType> {
     }
 }
 
-// @ts-ignore
-export const SignIn = withUser(SignUpPage);
+export const SignIn = withUser(SignUpPage as typeof Block);

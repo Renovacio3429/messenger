@@ -26,10 +26,13 @@ export class ChatsAPI extends BaseAPI {
         return this.http.delete("/users", this.convertParams({ data }));
     }
 
-    async getToken(id: number): Promise<string> {
-        const response = await this.http.post(`/token/${id}`, this.convertParams());
-
-        return (response as any).token;
+    async getToken(id: number): Promise<string | undefined> {
+        try {
+            const response = await this.http.post(`/token/${id}`, this.convertParams());
+            return (response as any).token;
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     delete(id: string): Promise<unknown> {
