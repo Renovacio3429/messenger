@@ -1,8 +1,7 @@
 import Block from "../../core/Block";
 import template from "./Input.tmpl";
 import {validComparator} from "../../service/ValidateService";
-import {LabelError} from "../LabelError/LabelError";
-import {setCssClasses} from "../CssClasses/CssClasses";
+import {getErrorElement} from "../../utils/elementHepler";
 
 type InputType = {
     cssClasses?: string,
@@ -10,9 +9,7 @@ type InputType = {
     type: string,
     placeholder?: string,
     disabled?: boolean,
-    events?: {
-        click: () => void,
-    }
+    events?: Record<string, () => void>,
 }
 
 export class Input extends Block<InputType> {
@@ -51,19 +48,10 @@ export class Input extends Block<InputType> {
             element.classList.remove(dangerClass);
 
             if (errorMessage) {
-                const errorEl = this.getErrorElement(errorMessage, dangerClass, errorClass);
+                const errorEl = getErrorElement(errorMessage, dangerClass, errorClass);
                 element.classList.add(dangerClass);
                 element.insertAdjacentHTML("afterend", <string>errorEl.getContent()?.outerHTML);
             }
         }
-    }
-
-    private getErrorElement(errorMessage: string, ...cssClasses: string[]): Block<Record<string, any>> {
-        return new LabelError({
-            cssClasses: setCssClasses({
-                classes: [...cssClasses],
-            }),
-            title: errorMessage,
-        });
     }
 }

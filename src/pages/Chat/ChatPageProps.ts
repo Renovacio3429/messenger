@@ -1,74 +1,32 @@
 import {SidebarHeader} from "../../components/SidebarHeader/SidebarHeader";
-import {Contact} from "../../components/Contact/Contact";
-import {DialogHeader} from "../../components/Dialog/header/DialogHeader";
-import {DialogFooter} from "../../components/Dialog/footer/DialogFooter";
-import {Form} from "../../components/Form/Form";
-import {Input} from "../../components/Input/Input";
-import {Button} from "../../components/Button/Button";
-import {Message} from "../../components/Message/Message";
-import {Wrapper} from "../../components/Wrapper/Wrapper";
-import {chatPageCssProps} from "./ChatPageCssProps";
-import {dropDownFooter, dropDownHeader} from "./ChatDropdowns";
 import {ChatPageType} from "./ChatPage";
+import {Link} from "../../components/Link/Link";
+import {profilePageCssProps} from "../Profile/ProfilePageCssProps";
+import {addChatModal} from "./addChatModal";
+import {addUserChatModal} from "../../components/Messenger/addUserChatModal";
+import {removeUserChatModal} from "../../components/Messenger/removeUserChatModal";
+import store from "../../core/Store";
+import ChatController from "../../controllers/ChatController";
 
 export const chatPageProps: ChatPageType = {
-    sidebarHeader: new SidebarHeader(),
-    contacts: [
-        new Contact({
-            contactName: "Алейксей",
-            messageInfo: "Пн"
+    sidebarHeader: new SidebarHeader({
+        addChatlink: new Link({
+            title: "Добавить новый чат",
+            cssClasses: profilePageCssProps.blueLinkCss,
+            submitLink: () => addChatModal.showFlex(),
         }),
-    ],
-    chatHeader: new DialogHeader({
-        name: "Алексей",
-        button: new Button({
-            events: {
-              click: () => dropDownHeader.showBlock(),
+        removeChatlink: new Link({
+            title: "Удалить чат",
+            cssClasses: profilePageCssProps.redLinkCss,
+            submitLink: () => {
+                const id = store.getState().selectedChat;
+                if (id) {
+                    ChatController.delete(id);
+                }
             },
-            cssClasses: chatPageCssProps.buttonHeaderCss,
-        }),
-        dropdownHeader: dropDownHeader,
+        })
     }),
-    chatFooter: new DialogFooter({
-        form: new Form({
-            action: "#",
-            inputs: [
-                new Wrapper({
-                    content: new Input({
-                        placeholder: "Сообщение",
-                        type: "text",
-                        fieldName: "message",
-                        cssClasses: chatPageCssProps.inputCss,
-                    }),
-                    cssClasses: chatPageCssProps.inputWrapCss
-                })
-            ],
-            button: new Button({
-                cssClasses: chatPageCssProps.buttonFormCss,
-            }),
-            cssClasses: chatPageCssProps.formCss,
-        }),
-        button: new Button({
-            events: {
-                click: () => dropDownFooter.showBlock(),
-            },
-            cssClasses: chatPageCssProps.buttonAttachCss,
-        }),
-        dropdownFooter: dropDownFooter,
-    }),
-    messages: [
-        new Message({
-            content: "Раз-раз, проверка связи!",
-            cssClasses: chatPageCssProps.messageQueryCss,
-        }),
-        new Message({
-            content: "Привет!",
-            cssClasses: chatPageCssProps.messageAnswerCss,
-        }),
-        new Message({
-            content: "=)",
-
-            cssClasses: chatPageCssProps.messageQueryCss,
-        }),
-    ],
+    addChatModal: addChatModal,
+    addUserChatModal: addUserChatModal,
+    removeUserChatModal: removeUserChatModal,
 }

@@ -1,6 +1,6 @@
 import Block from "../../../core/Block";
 import template from "./DialogFooter.tmpl";
-import {Form} from "../../Form/Form";
+import {Form} from "../../Forms/Form";
 import {FooterDropDown} from "../../Dropdown/chatFooter/FooterDropDown";
 import {Button} from "../../Button/Button";
 

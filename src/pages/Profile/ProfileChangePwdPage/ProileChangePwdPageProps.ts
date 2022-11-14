@@ -1,11 +1,15 @@
-import {Form} from "../../../components/Form/Form";
 import {InputFieldset} from "../../../components/InputFieldset/InputFieldset";
 import {Label} from "../../../components/Label/Label";
 import {Input} from "../../../components/Input/Input";
 import {Button} from "../../../components/Button/Button";
 import {Avatar} from "../../../components/Avatar/Avatar";
-import {profilePageCssProps} from "../ProfilePageCssProps";
+import {Wrapper} from "../../../components/Wrapper/Wrapper";
+import {ProfileChangePwdForm} from "../../../components/Forms/ProfileChangePwdForm";
 import {ProfileChangePwdPageType} from "./ProfileChangePwdPage";
+import UserController from "../../../controllers/UserController";
+import {modal} from "../modalProfile";
+import {profilePageCssProps} from "../ProfilePageCssProps";
+import {UserType} from "../../../api/UserAPI";
 
 export const profileChangePwdPageProps: ProfileChangePwdPageType = {
     sidebarButton: new Button({
@@ -14,16 +18,16 @@ export const profileChangePwdPageProps: ProfileChangePwdPageType = {
             click: () => window.location.pathname="/chat"
         }
     }),
-    avatar: new Avatar({
+    avatar: new Wrapper({
         cssClasses: profilePageCssProps.avatarCss,
-        input: new Input({
-            type: "button",
-            fieldName: "avatar",
+        content: new Avatar({
             cssClasses: profilePageCssProps.avatarInputCss,
-        })
+            events: {
+                click: () => modal.showFlex(),
+            }
+        }),
     }),
-    content: new Form({
-        action: "/profile",
+    content: new ProfileChangePwdForm({
         inputs: [
             new InputFieldset({
                 cssClasses: profilePageCssProps.fieldsetCss,
@@ -36,7 +40,7 @@ export const profileChangePwdPageProps: ProfileChangePwdPageType = {
                         type: "password",
                         fieldName: "oldPassword",
                         cssClasses: profilePageCssProps.inputCss,
-                        placeholder: "qwerty",
+                        placeholder: "Введите старый пароль",
                     })
                 ]
             }),
@@ -51,7 +55,7 @@ export const profileChangePwdPageProps: ProfileChangePwdPageType = {
                         type: "password",
                         fieldName: "newPassword",
                         cssClasses: profilePageCssProps.inputCss,
-                        placeholder: "qwerty",
+                        placeholder: "Введите новый пароль",
                     })
                 ]
             }),
@@ -66,7 +70,7 @@ export const profileChangePwdPageProps: ProfileChangePwdPageType = {
                         type: "password",
                         fieldName: "newPasswordSecond",
                         cssClasses: profilePageCssProps.inputCss,
-                        placeholder: "qwerty",
+                        placeholder: "Введите новый пароль еще раз",
                     })
                 ]
             }),
@@ -75,6 +79,11 @@ export const profileChangePwdPageProps: ProfileChangePwdPageType = {
             title: "Сохранить",
             cssClasses: profilePageCssProps.buttonCss
         }),
-        cssClasses: profilePageCssProps.formCss
+        cssClasses: profilePageCssProps.formCss,
+
+        submitData: (data: UserType) => {
+            UserController.updatePassword(data);
+        },
     }),
+    modal: modal,
 }

@@ -1,4 +1,3 @@
-import {Form} from "../../../components/Form/Form";
 import {InputFieldset} from "../../../components/InputFieldset/InputFieldset";
 import {Label} from "../../../components/Label/Label";
 import {Input} from "../../../components/Input/Input";
@@ -6,7 +5,11 @@ import {Button} from "../../../components/Button/Button";
 import {Avatar} from "../../../components/Avatar/Avatar";
 import {Wrapper} from "../../../components/Wrapper/Wrapper";
 import {profilePageCssProps} from "../ProfilePageCssProps";
+import {modal} from "../modalProfile";
 import {ProfileChangeDataPageType} from "./ProfileChangeDataPage";
+import UserController from "../../../controllers/UserController";
+import {ProfileChangeDataForm} from "../../../components/Forms/ProfileChangeDataForm";
+import {UserType} from "../../../api/UserAPI";
 
 export const profileChangeDataPageProps: ProfileChangeDataPageType = {
     sidebarButton: new Button({
@@ -15,16 +18,16 @@ export const profileChangeDataPageProps: ProfileChangeDataPageType = {
             click: () => window.location.pathname="/chat"
         }
     }),
-    avatar: new Avatar({
+    avatar: new Wrapper({
         cssClasses: profilePageCssProps.avatarCss,
-        input: new Input({
-            type: "button",
-            fieldName: "avatar",
+        content: new Avatar({
             cssClasses: profilePageCssProps.avatarInputCss,
+            events: {
+                click: () => modal.showFlex(),
+            }
         }),
     }),
-    content: new Form({
-        action: "/profile",
+    content: new ProfileChangeDataForm({
         inputs: [
             new InputFieldset({
                 cssClasses: profilePageCssProps.fieldsetCss,
@@ -38,7 +41,7 @@ export const profileChangeDataPageProps: ProfileChangeDataPageType = {
                             type: "text",
                             fieldName: "email",
                             cssClasses: profilePageCssProps.inputCss,
-                            placeholder: "pochta@yandex.ru",
+                            placeholder: "Информация отсутствует",
                         }),
                         cssClasses: profilePageCssProps.inputWrapCss,
                     }),
@@ -56,7 +59,7 @@ export const profileChangeDataPageProps: ProfileChangeDataPageType = {
                             type: "text",
                             fieldName: "login",
                             cssClasses: profilePageCssProps.inputCss,
-                            placeholder: "ivanivanov",
+                            placeholder: "Информация отсутствует",
                         }),
                         cssClasses: profilePageCssProps.inputWrapCss,
                     }),
@@ -74,7 +77,7 @@ export const profileChangeDataPageProps: ProfileChangeDataPageType = {
                             type: "text",
                             fieldName: "first_name",
                             cssClasses: profilePageCssProps.inputCss,
-                            placeholder: "Иван",
+                            placeholder: "Информация отсутствует",
                         }),
                         cssClasses: profilePageCssProps.inputWrapCss,
                     }),
@@ -92,7 +95,7 @@ export const profileChangeDataPageProps: ProfileChangeDataPageType = {
                             type: "text",
                             fieldName: "second_name",
                             cssClasses: profilePageCssProps.inputCss,
-                            placeholder: "Иванов",
+                            placeholder: "Информация отсутствует",
                         }),
                         cssClasses: profilePageCssProps.inputWrapCss,
                     }),
@@ -110,7 +113,7 @@ export const profileChangeDataPageProps: ProfileChangeDataPageType = {
                             type: "text",
                             fieldName: "display_name",
                             cssClasses: profilePageCssProps.inputCss,
-                            placeholder: "Иван",
+                            placeholder: "Информация отсутствует",
                         }),
                         cssClasses: profilePageCssProps.inputWrapCss,
                     }),
@@ -128,7 +131,7 @@ export const profileChangeDataPageProps: ProfileChangeDataPageType = {
                             type: "text",
                             fieldName: "phone",
                             cssClasses: profilePageCssProps.inputCss,
-                            placeholder: "+7-(909)-967-30-30",
+                            placeholder: "Информация отсутствует",
                         }),
                         cssClasses: profilePageCssProps.inputWrapCss,
                     }),
@@ -140,5 +143,10 @@ export const profileChangeDataPageProps: ProfileChangeDataPageType = {
             cssClasses: profilePageCssProps.buttonCss
         }),
         cssClasses: profilePageCssProps.formCss,
+
+        submitData: (data: UserType) => {
+            UserController.updateUser(data);
+        },
     }),
+    modal: modal,
 }

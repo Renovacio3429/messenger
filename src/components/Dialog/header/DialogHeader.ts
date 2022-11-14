@@ -6,7 +6,7 @@ import {HeaderDropDown} from "../../Dropdown/chatHeader/HeaderDropDown";
 type DialogHeaderType = {
     button?: Button,
     dropdownHeader?: HeaderDropDown,
-    name: string
+    name?: string
 }
 
 export class DialogHeader extends Block<DialogHeaderType> {

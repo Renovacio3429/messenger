@@ -1,13 +1,17 @@
-import Block from "../../core/Block";
 import template from "./Form.tmpl";
+import Block from "../../core/Block";
 import {Input} from "../Input/Input";
 import {Button} from "../Button/Button";
 
 type FormType = {
     cssClasses?: string,
-    action: string,
-    inputs?: Block<any>[],
+    inputs?: Block<any>[] | Block<any>,
     button?: Button,
+    submitData: (e: any) => void,
+
+    chatNameInput?: Input,
+    userIdInput?: Input,
+    userLogin?: Input,
 }
 
 export class Form extends Block<FormType> {
@@ -27,20 +31,7 @@ export class Form extends Block<FormType> {
         return this.compile(template, this.props);
     }
 
-    private handleSubmit(event: Event) {
+    protected handleSubmit(event: Event) {
         event.preventDefault();
-
-        const inputs = this.children.inputs;
-        const inputFormJson: Record<string, string> = {};
-
-        if (Array.isArray(inputs)) {
-            inputs.forEach((input: Input) => {
-                const content = input.getContent()?.querySelector("input");
-                if (content)
-                    inputFormJson[content.name] = content.value;
-            });
-        }
-
-        console.log(inputFormJson);
     }
 }

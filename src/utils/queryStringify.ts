@@ -1,4 +1,5 @@
-export function queryStringify (data: Record<string, string | Array<string | number> | number>) {
+export function queryStringify (json: string): string {
+    const data = JSON.parse(json);
     const keys = Object.keys(data);
 
     return keys.reduce((result, key, index) => {

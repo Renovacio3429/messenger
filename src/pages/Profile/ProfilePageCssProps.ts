@@ -46,4 +46,10 @@ export const profilePageCssProps: Record<string, string> = {
     inputWrapCss: setCssClasses({
         classes: ["profile-input-wrap"],
     }),
+    closeModalButtonCss: setCssClasses({
+        classes: ["modal-close"],
+    }),
+    formModal: setCssClasses({
+        classes: ["modal-form "],
+    }),
 }
