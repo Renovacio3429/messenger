@@ -13,4 +13,4 @@ export default `
         </div>
         <input type="text" class="input chat-input sidebar-input" placeholder="Поиск" name="search">
     </div>
-`
+`;

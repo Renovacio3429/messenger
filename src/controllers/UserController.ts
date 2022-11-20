@@ -1,7 +1,7 @@
-import API, {UsersAPI, UserType} from "../api/UserAPI";
-import store from "../core/Store";
-import Router from "../core/Router/Router";
-import {RoutesConfig} from "../core/Router/RouterConfig";
+import API, { UsersAPI, UserType } from "api/UserAPI";
+import store from "core/Store";
+import Router from "core/Router/Router";
+import { RoutesConfig } from "core/Router/RouterConfig";
 
 class UsersController {
     private readonly api: UsersAPI;

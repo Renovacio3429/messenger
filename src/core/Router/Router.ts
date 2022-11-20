@@ -1,5 +1,4 @@
-import Block from "../Block";
-
+import Block from "core/Block";
 
 function isEqual(lhs: string, rhs: string): boolean {
     return lhs === rhs;
@@ -12,7 +11,7 @@ function render(query: string, block: Block<any>) {
         throw new Error(`root not found by selector "${query}"`);
     }
 
-    root.innerHTML = '';
+    root.innerHTML = "";
 
     root.append(block.getContent()!);
 
@@ -22,7 +21,11 @@ function render(query: string, block: Block<any>) {
 class Route {
     private block: Block<any> | null = null;
 
-    constructor(private pathname: string, private readonly blockClass: typeof Block, private readonly query: string) {}
+    constructor(
+        private pathname: string,
+        private readonly blockClass: typeof Block,
+        private readonly query: string
+    ) {}
 
     leave() {
         this.block = null;
@@ -92,7 +95,7 @@ class Router {
     }
 
     public go(pathname: string) {
-        this.history.pushState({}, '', pathname);
+        this.history.pushState({}, "", pathname);
 
         this._onRoute(pathname);
     }
@@ -106,8 +109,8 @@ class Router {
     }
 
     private getRoute(pathname: string) {
-        return this.routes.find(route => route.match(pathname));
+        return this.routes.find((route) => route.match(pathname));
     }
 }
 
-export default new Router('#app');
+export default new Router("#app");

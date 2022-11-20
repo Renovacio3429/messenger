@@ -1,27 +1,29 @@
 import template from "./ChatList.tmpl";
-import Block from "../../core/Block";
-import ChatController from "../../controllers/ChatController";
-import {Chat, ChatType} from "../Chat/Chat";
-import {withChats} from "../../hocs/withChats";
+import Block from "core/Block";
+import ChatController from "controllers/ChatController";
+import { Chat, ChatType } from "components/Chat/Chat";
+import { withChats } from "hocs/withChats";
 
 type ChatListComponentType = {
-    isChatsLoaded?: boolean,
-    chats: ChatType[]
-}
+    isChatsLoaded?: boolean;
+    chats: ChatType[];
+};
 
 export class ChatListComponent extends Block<ChatListComponentType> {
-
-    protected init () {
+    protected init() {
         this.children.chats = this.createChats(this.props);
     }
 
-    protected componentDidUpdate(oldProps: ChatListComponentType, newProps: ChatListComponentType): boolean {
+    protected componentDidUpdate(
+        oldProps: ChatListComponentType,
+        newProps: ChatListComponentType
+    ): boolean {
         this.children.chats = this.createChats(newProps);
         return true;
     }
 
     private createChats(props: ChatListComponentType) {
-        return props.chats.map(data => {
+        return props.chats.map((data) => {
             return new Chat({
                 ...data,
                 events: {
@@ -34,7 +36,7 @@ export class ChatListComponent extends Block<ChatListComponentType> {
     }
 
     protected render(): DocumentFragment {
-        return this.compile(template, {...this.props});
+        return this.compile(template, { ...this.props });
     }
 }
 

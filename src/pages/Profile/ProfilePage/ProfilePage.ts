@@ -1,28 +1,27 @@
-import Block from "../../../core/Block";
+import Block from "core/Block";
 import template from "../ProfilePage.tmpl";
-import {Button} from "../../../components/Button/Button";
-import {LinkBox} from "../../../components/LinkBox/LinkBox";
-import {Modal} from "../../../components/Modal/Modal";
-import {Form} from "../../../components/Forms/Form";
-import {Input} from "../../../components/Input/Input";
-import {Avatar} from "../../../components/Avatar/Avatar";
-import {profilePageProps} from "./ProilePageProps";
-import {withUser} from "../../../hocs/withUser";
-import store from "../../../core/Store";
-import {setProfileData} from "../setProfileData";
+import { Button } from "components/Button/Button";
+import { LinkBox } from "components/LinkBox/LinkBox";
+import { Modal } from "components/Modal/Modal";
+import { Form } from "components/Forms/Form";
+import { Input } from "components/Input/Input";
+import { Avatar } from "components/Avatar/Avatar";
+import { profilePageProps } from "./ProilePageProps";
+import { withUser } from "hocs/withUser";
+import store from "core/Store";
+import { setProfileData } from "../setProfileData";
 // @ts-ignore
-import emptyAvatar from "../../../../static/icon/empty-avatar-icon.svg";
+import emptyAvatar from "static/icon/empty-avatar-icon.svg";
 
 export type ProfilePageType = {
-    sidebarButton: Button,
-    avatar: Avatar,
-    content: Form,
-    linkBox: LinkBox,
-    modal: Modal,
-}
+    sidebarButton: Button;
+    avatar: Avatar;
+    content: Form;
+    linkBox: LinkBox;
+    modal: Modal;
+};
 
 export class ProfilePage extends Block<ProfilePageType> {
-
     protected init() {
         this.children = profilePageProps;
         this.setInputData(this.children.content.children.inputs);
@@ -34,24 +33,27 @@ export class ProfilePage extends Block<ProfilePageType> {
     }
 
     private setInputData(inputsArr: Input[]): void {
-        inputsArr.forEach(fieldset => {
-            const content: HTMLInputElement | undefined | null = fieldset.getContent()?.querySelector("input");
+        inputsArr.forEach((fieldset) => {
+            const content: HTMLInputElement | undefined | null = fieldset
+                .getContent()
+                ?.querySelector("input");
             if (content) {
                 setProfileData(content);
             }
-        })
+        });
     }
-
 
     private setAvatar(content: Avatar): void {
         if (store.getState().user.avatar) {
             content.setProps({
-                input: `https://ya-praktikum.tech/api/v2/resources${store.getState().user.avatar}`
-            })
+                input: `https://ya-praktikum.tech/api/v2/resources${
+                    store.getState().user.avatar
+                }`,
+            });
         } else {
             content.setProps({
-                input: emptyAvatar
-            })
+                input: emptyAvatar,
+            });
         }
     }
 }

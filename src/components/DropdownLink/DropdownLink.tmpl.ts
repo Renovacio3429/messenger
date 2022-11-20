@@ -4,4 +4,4 @@ export default `
         <i class="{{iconClass}}"></i>
         <div>{{title}}</div>
     </a>
-`
+`;

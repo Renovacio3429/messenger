@@ -1,16 +1,16 @@
-import {Modal} from "../../components/Modal/Modal";
-import {Title} from "../../components/Title/Title";
-import {Button} from "../../components/Button/Button";
-import {Input} from "../../components/Input/Input";
-import ChatController from "../../controllers/ChatController";
-import {AddChatForm} from "../../components/Forms/AddChatForm";
-import {profilePageCssProps} from "../Profile/ProfilePageCssProps";
+import { Modal } from "components/Modal/Modal";
+import { Title } from "components/Title/Title";
+import { Button } from "components/Button/Button";
+import { Input } from "components/Input/Input";
+import ChatController from "controllers/ChatController";
+import { AddChatForm } from "components/Forms/AddChatForm";
+import { profilePageCssProps } from "../Profile/ProfilePageCssProps";
 
 const chatNameInput = new Input({
     type: "text",
     fieldName: "title",
-    placeholder: "Введите название чата"
-})
+    placeholder: "Введите название чата",
+});
 
 export const addChatModal: Modal = new Modal({
     content: [
@@ -18,8 +18,8 @@ export const addChatModal: Modal = new Modal({
             title: "x",
             cssClasses: profilePageCssProps.closeModalButtonCss,
             events: {
-                click: () => addChatModal.none()
-            }
+                click: () => addChatModal.none(),
+            },
         }),
         new Title({
             title: "Добавить чат",
@@ -33,8 +33,7 @@ export const addChatModal: Modal = new Modal({
                 title: "Добавить",
                 cssClasses: profilePageCssProps.modalButtonCss,
             }),
-            submitData: (data: {title: string}) => {
-
+            submitData: (data: { title: string }) => {
                 const nameChat: string = data.title;
 
                 if (nameChat) {
@@ -43,5 +42,5 @@ export const addChatModal: Modal = new Modal({
                 }
             },
         }),
-    ]
+    ],
 });

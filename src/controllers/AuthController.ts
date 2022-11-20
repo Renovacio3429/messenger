@@ -1,8 +1,8 @@
-import API, {AuthAPI, SignUpType} from '../api/AuthAPI';
+import API, { AuthAPI, SignUpType } from "api/AuthAPI";
 
-import store from "../core/Store";
-import Router from "../core/Router/Router";
-import {RoutesConfig} from "../core/Router/RouterConfig";
+import store from "core/Store";
+import Router from "core/Router/Router";
+import { RoutesConfig } from "core/Router/RouterConfig";
 
 export class AuthController {
     private readonly api: AuthAPI;
@@ -32,7 +32,7 @@ export class AuthController {
     async fetchUser() {
         try {
             const user = await this.api.read();
-            store.set('user', user);
+            store.set("user", user);
         } catch (e: any) {
             console.error(e.message);
         }

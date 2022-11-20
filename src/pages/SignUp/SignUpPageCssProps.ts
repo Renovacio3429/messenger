@@ -1,4 +1,4 @@
-import {setCssClasses} from "../../components/CssClasses/CssClasses";
+import { setCssClasses } from "components/CssClasses/CssClasses";
 
 export const signUpPageCssProps: Record<string, string> = {
     fieldsetCss: setCssClasses({
@@ -22,4 +22,4 @@ export const signUpPageCssProps: Record<string, string> = {
     linkCss: setCssClasses({
         classes: ["link-blue", "link-center", "link-form-margin"],
     }),
-}
+};

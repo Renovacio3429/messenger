@@ -1,11 +1,11 @@
 export default class EventBus {
-    protected readonly listeners: Record<string,((args: unknown[]) => void)[]>;
+    protected readonly listeners: Record<string, Function[]>;
 
     constructor() {
         this.listeners = {};
     }
 
-    public on(event: string, callback: () => void): void {
+    public on(event: string, callback: Function): void {
         if (!this.listeners[event]) {
             this.listeners[event] = [];
         }
@@ -19,17 +19,16 @@ export default class EventBus {
         }
 
         this.listeners[event] = this.listeners[event].filter(
-            listener => listener !== callback
+            (listener) => listener !== callback
         );
     }
 
     public emit(event: string, ...args: unknown[]): void {
-
         if (!this.listeners[event]) {
             throw new Error(`Event not found: ${event}`);
         }
 
-        this.listeners[event].forEach(function(listener) {
+        this.listeners[event].forEach(function (listener) {
             listener(...args);
         });
     }

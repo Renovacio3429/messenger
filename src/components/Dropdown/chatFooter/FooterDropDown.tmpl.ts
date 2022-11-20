@@ -14,4 +14,4 @@ export default `
             <div>Локация</div>
         </a>
     </div>
-`
+`;

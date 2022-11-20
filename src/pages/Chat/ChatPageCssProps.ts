@@ -1,4 +1,4 @@
-import {setCssClasses} from "../../components/CssClasses/CssClasses";
+import { setCssClasses } from "components/CssClasses/CssClasses";
 
 export const chatPageCssProps: Record<string, string> = {
     formCss: setCssClasses({
@@ -25,4 +25,4 @@ export const chatPageCssProps: Record<string, string> = {
     inputWrapCss: setCssClasses({
         classes: ["chat-input-message-wrap"],
     }),
-}
+};

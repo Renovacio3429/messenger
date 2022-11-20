@@ -1,9 +1,11 @@
-import {Form} from "./Form";
-import {Input} from "../Input/Input";
-import {inputDataExists, inputSuccessValidExists} from "../../service/ValidateService";
+import { Form } from "./Form";
+import { Input } from "components/Input/Input";
+import {
+    inputDataExists,
+    inputSuccessValidExists,
+} from "service/ValidateService";
 
 export class ProfileChangeDataForm extends Form {
-
     protected handleSubmit(event: Event) {
         super.handleSubmit(event);
 
@@ -11,9 +13,12 @@ export class ProfileChangeDataForm extends Form {
         const inputFormJson: Record<string, any> = {};
 
         if (Array.isArray(inputs)) {
-
             inputs.forEach((input: Input) => {
-                const content: HTMLInputElement | HTMLInputElement | undefined | null = input.getContent()?.querySelector("input");
+                const content:
+                    | HTMLInputElement
+                    | HTMLInputElement
+                    | undefined
+                    | null = input.getContent()?.querySelector("input");
 
                 if (content) {
                     inputFormJson[content.name] = content.value;
