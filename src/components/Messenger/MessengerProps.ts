@@ -1,18 +1,18 @@
-import {DialogHeader} from "../Dialog/header/DialogHeader";
-import {chatPageCssProps} from "../../pages/Chat/ChatPageCssProps";
-import {Button} from "../Button/Button";
-import {Wrapper} from "../Wrapper/Wrapper";
-import {DialogFooter} from "../Dialog/footer/DialogFooter";
-import {Input} from "../Input/Input";
+import { DialogHeader } from "../Dialog/header/DialogHeader";
+import { chatPageCssProps } from "../../pages/Chat/ChatPageCssProps";
+import { Button } from "../Button/Button";
+import { Wrapper } from "../Wrapper/Wrapper";
+import { DialogFooter } from "../Dialog/footer/DialogFooter";
+import { Input } from "../Input/Input";
 import MessagesController from "../../controllers/MessagesController";
-import {ChatForm} from "../Forms/ChatForm";
-import {MessengerComponentType} from "./Messenger";
-import {removeUserChatModal} from "./removeUserChatModal";
-import {addUserChatModal} from "./addUserChatModal";
-import {FooterDropDown} from "../Dropdown/chatFooter/FooterDropDown";
-import {HeaderDropDown} from "../Dropdown/chatHeader/HeaderDropDown";
-import {DropdownLink} from "../DropdownLink/DropdownLink";
-import {MessageType} from "../Message/Message";
+import { ChatForm } from "../Forms/ChatForm";
+import { MessengerComponentType } from "./Messenger";
+import { removeUserChatModal } from "./removeUserChatModal";
+import { addUserChatModal } from "./addUserChatModal";
+import { FooterDropDown } from "../Dropdown/chatFooter/FooterDropDown";
+import { HeaderDropDown } from "../Dropdown/chatHeader/HeaderDropDown";
+import { DropdownLink } from "../DropdownLink/DropdownLink";
+import { MessageType } from "../Message/Message";
 
 const dropDownFooter = new FooterDropDown();
 const dropDownHeader = new HeaderDropDown({
@@ -24,12 +24,12 @@ const dropDownHeader = new HeaderDropDown({
             submitLink: () => addUserChatModal.showFlex(),
         }),
         new DropdownLink({
-            title: 'Удалить_пользователя',
-            iconClass: 'remove-icon',
-            linkCss: 'remove-user-link',
+            title: "Удалить_пользователя",
+            iconClass: "remove-icon",
+            linkCss: "remove-user-link",
             submitLink: () => removeUserChatModal.showFlex(),
         }),
-    ]
+    ],
 });
 
 export const MessengerProps: MessengerComponentType = {
@@ -51,7 +51,7 @@ export const MessengerProps: MessengerComponentType = {
                     fieldName: "message",
                     cssClasses: chatPageCssProps.inputCss,
                 }),
-                cssClasses: chatPageCssProps.inputWrapCss
+                cssClasses: chatPageCssProps.inputWrapCss,
             }),
             button: new Button({
                 cssClasses: chatPageCssProps.buttonFormCss,
@@ -59,7 +59,10 @@ export const MessengerProps: MessengerComponentType = {
             cssClasses: chatPageCssProps.formCss,
             submitData: (data: MessageType) => {
                 if (ChatInfo.chatId && data) {
-                    MessagesController.sendMessage(ChatInfo.chatId , data.content);
+                    MessagesController.sendMessage(
+                        ChatInfo.chatId,
+                        data.message
+                    );
                 }
             },
         }),
@@ -71,8 +74,8 @@ export const MessengerProps: MessengerComponentType = {
         }),
         dropdownFooter: dropDownFooter,
     }),
-}
+};
 
 export const ChatInfo: Record<string, undefined | number> = {
     chatId: undefined,
-}
+};

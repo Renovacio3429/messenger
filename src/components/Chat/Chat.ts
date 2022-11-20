@@ -1,12 +1,12 @@
-import Block from "../../core/Block";
+import Block from "core/Block";
 import template from "./Chat.tmpl";
-import {withSelectedChat} from "../../hocs/withSelectedChat";
+import { withSelectedChat } from "hocs/withSelectedChat";
 
 export type ChatType = {
-    contactName: string,
+    contactName: string;
     selectedChat: any;
     id: number;
-}
+};
 
 export class ChatComponent extends Block<ChatType> {
     public render(): DocumentFragment {

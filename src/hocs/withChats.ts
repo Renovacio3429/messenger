@@ -1,3 +1,5 @@
-import {withStore} from "./withStore";
+import { withStore } from "./withStore";
 
-export const withChats = withStore(state => ({chats: [...(state.chats || [])]}));
+export const withChats = withStore((state) => ({
+    chats: [...(state.chats || [])],
+}));

@@ -7,7 +7,7 @@ export type SignUpType = {
     email?: string;
     password?: string;
     phone?: string;
-}
+};
 
 export class AuthAPI extends BaseAPI {
     constructor() {

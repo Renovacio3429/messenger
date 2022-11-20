@@ -1,13 +1,13 @@
-import Block from "../../../core/Block";
+import Block from "core/Block";
 import template from "../ErrorPage.tmpl";
-import {notFoundPageProps} from "./NotFoundPageProps";
+import { notFoundPageProps } from "./NotFoundPageProps";
 
 export type NotFoundPageType = {
-    code: string,
-    title: string,
-    link: string,
-    linkTitle: string,
-}
+    code: string;
+    title: string;
+    link: string;
+    linkTitle: string;
+};
 
 export class NotFoundPage extends Block<NotFoundPageType> {
     protected init() {

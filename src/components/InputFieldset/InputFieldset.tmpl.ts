@@ -5,4 +5,4 @@ export default `
             {{{this}}}
         {{/content}}
     </fieldset>
-`
+`;

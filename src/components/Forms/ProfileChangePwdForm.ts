@@ -1,10 +1,13 @@
-import {Form} from "./Form";
-import {Input} from "../Input/Input";
-import {inputDataExists, inputSuccessValidExists, passwordCheckValidate} from "../../service/ValidateService";
-import {insertErrorEl, removeErrorEl} from "../../utils/elementHepler";
+import { Form } from "./Form";
+import { Input } from "components/Input/Input";
+import {
+    inputDataExists,
+    inputSuccessValidExists,
+    passwordCheckValidate,
+} from "service/ValidateService";
+import { insertErrorEl, removeErrorEl } from "utils/elementHepler";
 
 export class ProfileChangePwdForm extends Form {
-
     protected handleSubmit(event: Event) {
         super.handleSubmit(event);
 
@@ -14,22 +17,23 @@ export class ProfileChangePwdForm extends Form {
         const dangerClass = "danger";
         const errorClass = `valid-error-checkPassword-${this.id}`;
 
-        let newPassword = '';
-        let newPasswordSecond = '';
+        let newPassword = "";
+        let newPasswordSecond = "";
         let newPasswordSecondInput: any = undefined;
 
         if (Array.isArray(inputs)) {
-
             inputs.forEach((input: Input) => {
-                const content: HTMLInputElement | undefined | null = input.getContent()?.querySelector("input");
+                const content: HTMLInputElement | undefined | null = input
+                    .getContent()
+                    ?.querySelector("input");
 
                 if (content) {
                     inputFormJson[content.name] = content.value;
                     switch (content.name) {
-                        case 'newPassword':
+                        case "newPassword":
                             newPassword = content.value;
                             break;
-                        case 'newPasswordSecond':
+                        case "newPasswordSecond":
                             newPasswordSecond = content.value;
                             newPasswordSecondInput = content;
                             break;
@@ -41,7 +45,12 @@ export class ProfileChangePwdForm extends Form {
 
             if (inputDataExists(inputs) && inputSuccessValidExists(inputs)) {
                 if (!passwordCheckValidate(newPassword, newPasswordSecond)) {
-                    insertErrorEl(newPasswordSecondInput, "Пароли не совпадают", dangerClass, errorClass);
+                    insertErrorEl(
+                        newPasswordSecondInput,
+                        "Пароли не совпадают",
+                        dangerClass,
+                        errorClass
+                    );
                     return;
                 }
 

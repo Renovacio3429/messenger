@@ -1,25 +1,25 @@
-import {Form} from "../../../components/Forms/Form";
-import {InputFieldset} from "../../../components/InputFieldset/InputFieldset";
-import {LinkBox} from "../../../components/LinkBox/LinkBox";
-import {Link} from "../../../components/Link/Link";
-import {Label} from "../../../components/Label/Label";
-import {Input} from "../../../components/Input/Input";
-import {Button} from "../../../components/Button/Button";
-import {Avatar} from "../../../components/Avatar/Avatar";
-import {Wrapper} from "../../../components/Wrapper/Wrapper";
-import {RoutesConfig} from "../../../core/Router/RouterConfig";
-import {modal} from "../modalProfile";
-import {profilePageCssProps} from "../ProfilePageCssProps";
-import {ProfilePageType} from "./ProfilePage";
-import router from "../../../core/Router/Router";
-import AuthController from "../../../controllers/AuthController";
-import {UserType} from "../../../api/UserAPI";
+import { Form } from "components/Forms/Form";
+import { InputFieldset } from "components/InputFieldset/InputFieldset";
+import { LinkBox } from "components/LinkBox/LinkBox";
+import { Link } from "components/Link/Link";
+import { Label } from "components/Label/Label";
+import { Input } from "components/Input/Input";
+import { Button } from "components/Button/Button";
+import { Avatar } from "components/Avatar/Avatar";
+import { Wrapper } from "components/Wrapper/Wrapper";
+import { RoutesConfig } from "core/Router/RouterConfig";
+import { modal } from "../modalProfile";
+import { profilePageCssProps } from "../ProfilePageCssProps";
+import { ProfilePageType } from "./ProfilePage";
+import router from "core/Router/Router";
+import AuthController from "controllers/AuthController";
+import { UserType } from "api/UserAPI";
 
 export const profilePageProps: ProfilePageType = {
     sidebarButton: new Button({
         cssClasses: profilePageCssProps.sidebarCss,
         events: {
-            click: () => router.go(RoutesConfig.Chat)
+            click: () => router.go(RoutesConfig.Chat),
         },
     }),
     avatar: new Wrapper({
@@ -28,7 +28,7 @@ export const profilePageProps: ProfilePageType = {
             cssClasses: profilePageCssProps.avatarInputCss,
             events: {
                 click: () => modal.showFlex(),
-            }
+            },
         }),
     }),
     content: new Form({
@@ -46,8 +46,8 @@ export const profilePageProps: ProfilePageType = {
                         cssClasses: profilePageCssProps.inputCss,
                         placeholder: "Данные отсутствуют",
                         disabled: true,
-                    })
-                ]
+                    }),
+                ],
             }),
             new InputFieldset({
                 cssClasses: profilePageCssProps.fieldsetCss,
@@ -62,8 +62,8 @@ export const profilePageProps: ProfilePageType = {
                         cssClasses: profilePageCssProps.inputCss,
                         placeholder: "Данные отсутствуют",
                         disabled: true,
-                    })
-                ]
+                    }),
+                ],
             }),
             new InputFieldset({
                 cssClasses: profilePageCssProps.fieldsetCss,
@@ -78,8 +78,8 @@ export const profilePageProps: ProfilePageType = {
                         cssClasses: profilePageCssProps.inputCss,
                         placeholder: "Данные отсутствуют",
                         disabled: true,
-                    })
-                ]
+                    }),
+                ],
             }),
             new InputFieldset({
                 cssClasses: profilePageCssProps.fieldsetCss,
@@ -94,8 +94,8 @@ export const profilePageProps: ProfilePageType = {
                         cssClasses: profilePageCssProps.inputCss,
                         placeholder: "Данные отсутствуют",
                         disabled: true,
-                    })
-                ]
+                    }),
+                ],
             }),
             new InputFieldset({
                 cssClasses: profilePageCssProps.fieldsetCss,
@@ -110,8 +110,8 @@ export const profilePageProps: ProfilePageType = {
                         cssClasses: profilePageCssProps.inputCss,
                         placeholder: "Данные отсутствуют",
                         disabled: true,
-                    })
-                ]
+                    }),
+                ],
             }),
             new InputFieldset({
                 cssClasses: profilePageCssProps.fieldsetCss,
@@ -139,24 +139,24 @@ export const profilePageProps: ProfilePageType = {
                 cssClasses: profilePageCssProps.blueLinkCss,
                 submitLink: () => {
                     router.go(RoutesConfig.ChangeProfileData);
-                }
+                },
             }),
             new Link({
                 title: "Изменить пароль",
                 cssClasses: profilePageCssProps.blueLinkCss,
                 submitLink: () => {
                     router.go(RoutesConfig.ChangeProfilePwd);
-                }
+                },
             }),
             new Link({
                 title: "Выйти",
                 cssClasses: profilePageCssProps.redLinkCss,
                 submitLink: () => {
                     AuthController.logout();
-                }
+                },
             }),
         ],
         cssClasses: profilePageCssProps.ulCss,
     }),
     modal: modal,
-}
+};

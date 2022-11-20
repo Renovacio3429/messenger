@@ -1,11 +1,11 @@
-import Block from "../../core/Block";
+import Block from "core/Block";
 import template from "./LinkBox.tmpl";
-import {Link} from "../Link/Link";
+import { Link } from "components/Link/Link";
 
 type LinkBoxType = {
-    cssClasses?: string,
-    links: Link[],
-}
+    cssClasses?: string;
+    links: Link[];
+};
 
 export class LinkBox extends Block<LinkBoxType> {
     public render(): DocumentFragment {

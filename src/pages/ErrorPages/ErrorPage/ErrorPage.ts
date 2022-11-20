@@ -1,13 +1,13 @@
-import Block from "../../../core/Block";
+import Block from "core/Block";
 import template from "../ErrorPage.tmpl";
-import {errorPageProps} from "./ErrorPageProps";
+import { errorPageProps } from "./ErrorPageProps";
 
 export type ErrorPageType = {
-    code: string,
-    title: string,
-    link: string,
-    linkTitle: string,
-}
+    code: string;
+    title: string;
+    link: string;
+    linkTitle: string;
+};
 
 export class ErrorPage extends Block<ErrorPageType> {
     protected init() {

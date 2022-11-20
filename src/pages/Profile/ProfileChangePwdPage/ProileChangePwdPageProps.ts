@@ -1,22 +1,22 @@
-import {InputFieldset} from "../../../components/InputFieldset/InputFieldset";
-import {Label} from "../../../components/Label/Label";
-import {Input} from "../../../components/Input/Input";
-import {Button} from "../../../components/Button/Button";
-import {Avatar} from "../../../components/Avatar/Avatar";
-import {Wrapper} from "../../../components/Wrapper/Wrapper";
-import {ProfileChangePwdForm} from "../../../components/Forms/ProfileChangePwdForm";
-import {ProfileChangePwdPageType} from "./ProfileChangePwdPage";
-import UserController from "../../../controllers/UserController";
-import {modal} from "../modalProfile";
-import {profilePageCssProps} from "../ProfilePageCssProps";
-import {UserType} from "../../../api/UserAPI";
+import { InputFieldset } from "components/InputFieldset/InputFieldset";
+import { Label } from "components/Label/Label";
+import { Input } from "components/Input/Input";
+import { Button } from "components/Button/Button";
+import { Avatar } from "components/Avatar/Avatar";
+import { Wrapper } from "components/Wrapper/Wrapper";
+import { ProfileChangePwdForm } from "components/Forms/ProfileChangePwdForm";
+import { ProfileChangePwdPageType } from "./ProfileChangePwdPage";
+import UserController from "controllers/UserController";
+import { modal } from "../modalProfile";
+import { profilePageCssProps } from "../ProfilePageCssProps";
+import { UserType } from "api/UserAPI";
 
 export const profileChangePwdPageProps: ProfileChangePwdPageType = {
     sidebarButton: new Button({
         cssClasses: profilePageCssProps.sidebarCss,
         events: {
-            click: () => window.location.pathname="/chat"
-        }
+            click: () => (window.location.pathname = "/chat"),
+        },
     }),
     avatar: new Wrapper({
         cssClasses: profilePageCssProps.avatarCss,
@@ -24,7 +24,7 @@ export const profileChangePwdPageProps: ProfileChangePwdPageType = {
             cssClasses: profilePageCssProps.avatarInputCss,
             events: {
                 click: () => modal.showFlex(),
-            }
+            },
         }),
     }),
     content: new ProfileChangePwdForm({
@@ -41,8 +41,8 @@ export const profileChangePwdPageProps: ProfileChangePwdPageType = {
                         fieldName: "oldPassword",
                         cssClasses: profilePageCssProps.inputCss,
                         placeholder: "Введите старый пароль",
-                    })
-                ]
+                    }),
+                ],
             }),
             new InputFieldset({
                 cssClasses: profilePageCssProps.fieldsetCss,
@@ -56,8 +56,8 @@ export const profileChangePwdPageProps: ProfileChangePwdPageType = {
                         fieldName: "newPassword",
                         cssClasses: profilePageCssProps.inputCss,
                         placeholder: "Введите новый пароль",
-                    })
-                ]
+                    }),
+                ],
             }),
             new InputFieldset({
                 cssClasses: profilePageCssProps.fieldsetCss,
@@ -71,13 +71,13 @@ export const profileChangePwdPageProps: ProfileChangePwdPageType = {
                         fieldName: "newPasswordSecond",
                         cssClasses: profilePageCssProps.inputCss,
                         placeholder: "Введите новый пароль еще раз",
-                    })
-                ]
+                    }),
+                ],
             }),
         ],
         button: new Button({
             title: "Сохранить",
-            cssClasses: profilePageCssProps.buttonCss
+            cssClasses: profilePageCssProps.buttonCss,
         }),
         cssClasses: profilePageCssProps.formCss,
 
@@ -86,4 +86,4 @@ export const profileChangePwdPageProps: ProfileChangePwdPageType = {
         },
     }),
     modal: modal,
-}
+};

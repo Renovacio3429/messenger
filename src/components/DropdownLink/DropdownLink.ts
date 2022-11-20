@@ -1,21 +1,20 @@
-import Block from "../../core/Block";
+import Block from "core/Block";
 import template from "./DropdownLink.tmpl";
 
 type DropdownLinkType = {
-    title: string,
-    iconClass: string,
-    linkCss: string,
+    title: string;
+    iconClass: string;
+    linkCss: string;
     submitLink?: () => void;
-}
+};
 
 export class DropdownLink extends Block<DropdownLinkType> {
-
     protected init() {
         this.setProps({
             events: {
                 click: this.handleSubmit.bind(this),
-            }
-        })
+            },
+        });
     }
 
     public render(): DocumentFragment {

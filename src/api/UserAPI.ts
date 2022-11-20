@@ -9,7 +9,7 @@ export type UserType = {
     email?: string;
     phone?: string;
     avatar?: string;
-}
+};
 
 export class UsersAPI extends BaseAPI {
     constructor() {
@@ -21,7 +21,10 @@ export class UsersAPI extends BaseAPI {
     }
 
     changeAvatar(data: UserType) {
-        return this.http.put("/profile/avatar", this.convertParams({ data }, true));
+        return this.http.put(
+            "/profile/avatar",
+            this.convertParams({ data }, true)
+        );
     }
 
     updatePassword(data: UserType) {

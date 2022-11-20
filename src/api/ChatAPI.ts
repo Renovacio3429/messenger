@@ -28,7 +28,10 @@ export class ChatsAPI extends BaseAPI {
 
     async getToken(id: number): Promise<string | undefined> {
         try {
-            const response = await this.http.post(`/token/${id}`, this.convertParams());
+            const response = await this.http.post(
+                `/token/${id}`,
+                this.convertParams()
+            );
             return (response as any).token;
         } catch (e) {
             console.error(e);
@@ -39,7 +42,7 @@ export class ChatsAPI extends BaseAPI {
         const data = {
             chatId: id,
         };
-        return this.http.delete('/', this.convertParams({ data }));
+        return this.http.delete("/", this.convertParams({ data }));
     }
 }
 

@@ -5,4 +5,4 @@ export default `
         {{~#classes}}{{~this}} {{/classes~}}
         "
     {{~/if~}}
-`
+`;
