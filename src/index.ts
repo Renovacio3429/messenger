@@ -12,7 +12,7 @@ import { Chat } from "pages/Chat/ChatPage";
 import "styles/styles.css";
 
                             window.addEventListener("DOMContentLoaded", async () => {
-    Router.use(RoutesConfig.Login, LoginPage)
+        Router.use(RoutesConfig.Login, LoginPage)
         .use(RoutesConfig.SignUp, SignIn)
             .use(RoutesConfig.Error, ErrorPage)
         .use(RoutesConfig.NotFound, NotFoundPage)
