@@ -4,17 +4,17 @@
 Приложение представляет из себя форму авторизации/регистрации пользователя в системе, чат с другими пользователями мессенджера и форму с настройками профиля. Приложение находится в стадии разработки и будет постоянно доробатываться.
 ## Стек технологий
 
-* <a href="https://nodejs.org/en/">NodeJS</a>
-* <a href="https://webpack.js.org/">Webpack</a> 
-* <a href="https://handlebarsjs.com/">Handlebars</a>
-* <a href="https://www.typescriptlang.org/">Typescript</a>
-* <a href="https://eslint.org/">Eslint</a>
-* <a href="https://stylelint.io/">Stylelint</a>
-* <a href="https://www.netlify.com/">Netlify</a>
-* <a href="https://heroku.com/">Heroku</a>
-* <a href="https://docker.com/">Docker</a>
-* <a href="https://mochajs.org/">Mocha</a>
-* <a href="https://www.chaijs.com/">Chai</a>
+* [NodeJS](https://nodejs.org)
+* [Webpack](https://webpack.js.org)
+* [Handlebars](https://handlebarsjs.com)
+* [Typescript](https://www.typescriptlang.org)
+* [Eslint](https://eslint.org)
+* [Stylelint](https://stylelint.io)
+* [Netlify](https://netlify.com)
+* [Heroku](https://heroku.com)
+* [Docker](https://docker.com)
+* [Mocha](https://mochajs.org)
+* [Chai](https://www.chaijs.com)
 
 
 ## Макет проекта
@@ -49,5 +49,5 @@
 ## Netlify
 
 Проект можно посмотреть здесь:
-* <a href="https://magical-chimera-4e93a7.netlify.app">Netlify</a>
-* <a href=https://blooming-badlands-45331.herokuapp.com>Heroku</a>
+* [Netlify](https://magical-chimera-4e93a7.netlify.app)
+* [Heroku](https://blooming-badlands-45331.herokuapp.com)

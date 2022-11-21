@@ -11,8 +11,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm-run-all test lint:all"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "./src/{**/*,*}.{ts,js,css,json}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   },
   "license": "ISC",
   "dependencies": {
