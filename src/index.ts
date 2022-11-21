@@ -11,7 +11,7 @@ import { ProfileChangePwd } from "pages/Profile/ProfileChangePwdPage/ProfileChan
 import { Chat } from "pages/Chat/ChatPage";
 import "styles/styles.css";
 
-                    window.addEventListener("DOMContentLoaded", async () => {
+                            window.addEventListener("DOMContentLoaded", async () => {
     Router.use(RoutesConfig.Login, LoginPage)
         .use(RoutesConfig.SignUp, SignIn)
             .use(RoutesConfig.Error, ErrorPage)
