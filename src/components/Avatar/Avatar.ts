@@ -1,12 +1,12 @@
-import Block from "../../core/Block";
+import Block from "core/Block";
 import template from "./Avatar.tmpl";
 
 type AvatarType = {
     cssClasses?: string;
     input?: string;
     events?: {
-        click: () => void,
-    }
+        click: () => void;
+    };
 };
 
 export class Avatar extends Block<AvatarType> {

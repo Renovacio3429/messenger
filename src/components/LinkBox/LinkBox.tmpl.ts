@@ -7,4 +7,4 @@ export default `
             </li>
         {{/links}}
     </ul>
-    `
+    `;

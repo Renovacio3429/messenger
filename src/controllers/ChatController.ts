@@ -1,7 +1,7 @@
-import API from '../api/ChatAPI';
-import {ChatsAPI} from '../api/ChatAPI';
-import store from '../core/Store';
-import MessagesController from './MessagesController';
+import API from "api/ChatAPI";
+import { ChatsAPI } from "api/ChatAPI";
+import store from "core/Store";
+import MessagesController from "./MessagesController";
 
 export class ChatController {
     private readonly api: ChatsAPI;
@@ -25,7 +25,7 @@ export class ChatController {
             const chats = await this.api.read("/", data);
 
             if (Array.isArray(chats))
-                chats.map(async chat => {
+                chats.map(async (chat) => {
                     const token = await this.getToken(chat.id);
                     await MessagesController.connect(chat.id, token);
                 });
@@ -60,13 +60,13 @@ export class ChatController {
     }
 
     selectChat(id: number): void {
-        store.set('selectedChat', id);
+        store.set("selectedChat", id);
     }
 
     async fetchChatUsers(id: number) {
         try {
             const users = await this.api.getUsers(id);
-            console.log(users)
+            console.log(users);
             store.set("selectedChatUsers", users);
         } catch (e) {
             console.error(e);

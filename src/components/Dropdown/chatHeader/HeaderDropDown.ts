@@ -1,20 +1,19 @@
-import Block from "../../../core/Block";
+import Block from "core/Block";
 import template from "./HeaderDropDown.tmpl";
-import {DropdownLink} from "../../DropdownLink/DropdownLink";
+import { DropdownLink } from "components/DropdownLink/DropdownLink";
 
 export type HeaderDropDownType = {
-    dropdownLinks: DropdownLink[],
+    dropdownLinks: DropdownLink[];
     events?: {
-        click: () => void
+        click: () => void;
     };
-}
+};
 
 export class HeaderDropDown extends Block<HeaderDropDownType> {
-
     public init() {
         this.props.events = {
             click: this.hideDropDown.bind(this),
-        }
+        };
     }
 
     public render(): DocumentFragment {

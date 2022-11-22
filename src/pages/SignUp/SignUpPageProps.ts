@@ -1,16 +1,16 @@
-import {Title} from "../../components/Title/Title";
-import {InputFieldset} from "../../components/InputFieldset/InputFieldset";
-import {Button} from "../../components/Button/Button";
-import {Link} from "../../components/Link/Link";
-import {Input} from "../../components/Input/Input";
-import {Label} from "../../components/Label/Label";
-import {RoutesConfig} from "../../core/Router/RouterConfig";
-import {SignInForm} from "../../components/Forms/SignInForm";
-import {SignInPageType} from "./SignUpPage";
-import {signUpPageCssProps} from "./SignUpPageCssProps";
-import AuthController from "../../controllers/AuthController";
-import router from "../../core/Router/Router";
-import {SignUpType} from "../../api/AuthAPI";
+import { Title } from "components/Title/Title";
+import { InputFieldset } from "components/InputFieldset/InputFieldset";
+import { Button } from "components/Button/Button";
+import { Link } from "components/Link/Link";
+import { Input } from "components/Input/Input";
+import { Label } from "components/Label/Label";
+import { RoutesConfig } from "core/Router/RouterConfig";
+import { SignInForm } from "components/Forms/SignInForm";
+import { SignInPageType } from "./SignUpPage";
+import { signUpPageCssProps } from "./SignUpPageCssProps";
+import AuthController from "controllers/AuthController";
+import router from "core/Router/Router";
+import { SignUpType } from "api/AuthAPI";
 
 export const signUpPageProps: SignInPageType = {
     title: new Title({
@@ -33,7 +33,7 @@ export const signUpPageProps: SignInPageType = {
                         fieldName: "email",
                         cssClasses: signUpPageCssProps.labelCss,
                     }),
-                ]
+                ],
             }),
             new InputFieldset({
                 cssClasses: signUpPageCssProps.fieldsetCss,
@@ -48,7 +48,7 @@ export const signUpPageProps: SignInPageType = {
                         fieldName: "login",
                         cssClasses: signUpPageCssProps.labelCss,
                     }),
-                ]
+                ],
             }),
             new InputFieldset({
                 cssClasses: signUpPageCssProps.fieldsetCss,
@@ -63,7 +63,7 @@ export const signUpPageProps: SignInPageType = {
                         fieldName: "phone",
                         cssClasses: signUpPageCssProps.labelCss,
                     }),
-                ]
+                ],
             }),
             new InputFieldset({
                 cssClasses: signUpPageCssProps.fieldsetCss,
@@ -78,7 +78,7 @@ export const signUpPageProps: SignInPageType = {
                         fieldName: "first_name",
                         cssClasses: signUpPageCssProps.labelCss,
                     }),
-                ]
+                ],
             }),
             new InputFieldset({
                 cssClasses: signUpPageCssProps.fieldsetCss,
@@ -93,7 +93,7 @@ export const signUpPageProps: SignInPageType = {
                         fieldName: "second_name",
                         cssClasses: signUpPageCssProps.labelCss,
                     }),
-                ]
+                ],
             }),
             new InputFieldset({
                 cssClasses: signUpPageCssProps.fieldsetCss,
@@ -108,7 +108,7 @@ export const signUpPageProps: SignInPageType = {
                         fieldName: "password",
                         cssClasses: signUpPageCssProps.labelCss,
                     }),
-                ]
+                ],
             }),
             new InputFieldset({
                 cssClasses: signUpPageCssProps.fieldsetCss,
@@ -123,7 +123,7 @@ export const signUpPageProps: SignInPageType = {
                         fieldName: "checkPassword",
                         cssClasses: signUpPageCssProps.labelCss,
                     }),
-                ]
+                ],
             }),
         ],
         button: new Button({
@@ -140,6 +140,6 @@ export const signUpPageProps: SignInPageType = {
         cssClasses: signUpPageCssProps.linkCss,
         submitLink: () => {
             router.go(RoutesConfig.Login);
-        }
+        },
     }),
 };

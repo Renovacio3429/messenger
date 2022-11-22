@@ -1,11 +1,11 @@
-import Block from "../../core/Block";
+import Block from "core/Block";
 import template from "./Label.tmpl";
 
 export type LabelType = {
-    cssClasses?: string,
-    fieldName?: string,
-    title: string,
-}
+    cssClasses?: string;
+    fieldName?: string;
+    title: string;
+};
 
 export class Label extends Block<LabelType> {
     public render(): DocumentFragment {

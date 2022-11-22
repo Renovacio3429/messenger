@@ -1,12 +1,12 @@
-import {SidebarHeader} from "../../components/SidebarHeader/SidebarHeader";
-import {ChatPageType} from "./ChatPage";
-import {Link} from "../../components/Link/Link";
-import {profilePageCssProps} from "../Profile/ProfilePageCssProps";
-import {addChatModal} from "./addChatModal";
-import {addUserChatModal} from "../../components/Messenger/addUserChatModal";
-import {removeUserChatModal} from "../../components/Messenger/removeUserChatModal";
-import store from "../../core/Store";
-import ChatController from "../../controllers/ChatController";
+import { SidebarHeader } from "components/SidebarHeader/SidebarHeader";
+import { ChatPageType } from "./ChatPage";
+import { Link } from "components/Link/Link";
+import { profilePageCssProps } from "../Profile/ProfilePageCssProps";
+import { addChatModal } from "./addChatModal";
+import { addUserChatModal } from "components/Messenger/addUserChatModal";
+import { removeUserChatModal } from "components/Messenger/removeUserChatModal";
+import store from "core/Store";
+import ChatController from "controllers/ChatController";
 
 export const chatPageProps: ChatPageType = {
     sidebarHeader: new SidebarHeader({
@@ -24,9 +24,9 @@ export const chatPageProps: ChatPageType = {
                     ChatController.delete(id);
                 }
             },
-        })
+        }),
     }),
     addChatModal: addChatModal,
     addUserChatModal: addUserChatModal,
     removeUserChatModal: removeUserChatModal,
-}
+};

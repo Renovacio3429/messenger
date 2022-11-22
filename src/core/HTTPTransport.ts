@@ -16,29 +16,49 @@ export default class HTTPTransport {
     }
 
     public get = (path: string, options: any = {}) => {
-        const resultUrl = options.data ? `${this.url}${path}${queryStringify(options.data)}` : `${this.url}${path}`;
+        const resultUrl = options.data
+            ? `${this.url}${path}${queryStringify(options.data)}`
+            : `${this.url}${path}`;
         return this.request(resultUrl, { ...options, method: Methods.GET });
     };
 
     public post = (path: string, options: any) => {
-        return this.request(`${this.url}${path}`, { ...options, method: Methods.POST });
+        return this.request(`${this.url}${path}`, {
+            ...options,
+            method: Methods.POST,
+        });
     };
 
     public put = (path: string, options: any) => {
-        return this.request(`${this.url}${path}`, { ...options, method: Methods.PUT });
+        return this.request(`${this.url}${path}`, {
+            ...options,
+            method: Methods.PUT,
+        });
     };
 
     public patch = (path: string, options: any) => {
-        return this.request(`${this.url}${path}`, { ...options, method: Methods.PATCH });
+        return this.request(`${this.url}${path}`, {
+            ...options,
+            method: Methods.PATCH,
+        });
     };
 
     public delete = (path: string, options: any) => {
-        console.log(options)
-        return this.request(`${this.url}${path}`, { ...options, method: Methods.DELETE });
+        console.log(options);
+        return this.request(`${this.url}${path}`, {
+            ...options,
+            method: Methods.DELETE,
+        });
     };
 
     private request = (url: string, options: any): Promise<Response> => {
-        const { headers = {}, method, data, timeout = 3000, credentials = true } = options;
+        const {
+            headers = {},
+            method,
+            data,
+            timeout = 3000,
+            credentials = true,
+        } = options;
 
         return new Promise(function (resolve, reject) {
             if (!method) {

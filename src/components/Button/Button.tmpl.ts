@@ -1,2 +1,2 @@
 // language=hbs
-export default `<button {{{cssClasses}}}>{{title}}</button>`
+export default `<button {{{cssClasses}}}>{{title}}</button>`;

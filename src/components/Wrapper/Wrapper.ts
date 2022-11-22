@@ -1,10 +1,10 @@
-import Block from "../../core/Block";
+import Block from "core/Block";
 import template from "./Wrapper.tmpl";
 
 type WrapperType = {
-    cssClasses?: string,
-    content: Block<any>
-}
+    cssClasses?: string;
+    content: Block<any>;
+};
 
 export class Wrapper extends Block<WrapperType> {
     public render(): DocumentFragment {

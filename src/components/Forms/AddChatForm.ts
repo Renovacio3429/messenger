@@ -1,7 +1,6 @@
-import {Form} from "./Form";
+import { Form } from "./Form";
 
 export class AddChatForm extends Form {
-
     protected handleSubmit(event: Event) {
         super.handleSubmit(event);
 

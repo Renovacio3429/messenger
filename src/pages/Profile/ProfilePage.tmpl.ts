@@ -15,4 +15,4 @@ export default `
         </main>
         {{{modal}}}
     </div>
-    `
+    `;

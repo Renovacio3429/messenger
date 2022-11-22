@@ -1,5 +1,5 @@
-import WSTransport, {WSTransportEvents} from '../core/WSTransport';
-import store from '../core/Store';
+import WSTransport, { WSTransportEvents } from "core/WSTransport";
+import store from "core/Store";
 
 type MessageType = {
     chat_id: number;
@@ -16,7 +16,7 @@ type MessageType = {
         content_size: number;
         upload_date: string;
     };
-}
+};
 
 class MessagesController {
     private sockets: Map<number, WSTransport> = new Map();
@@ -28,7 +28,9 @@ class MessagesController {
             }
 
             const userId = store.getState().user.id;
-            const wsTransport = new WSTransport(`wss://ya-praktikum.tech/ws/chats/${userId}/${id}/${token}`);
+            const wsTransport = new WSTransport(
+                `wss://ya-praktikum.tech/ws/chats/${userId}/${id}/${token}`
+            );
             this.sockets.set(id, wsTransport);
             await wsTransport.connect();
             this.subscribe(wsTransport, id);
@@ -36,7 +38,6 @@ class MessagesController {
         } catch (e) {
             console.error(e);
         }
-
     }
 
     sendMessage(id: number, message: string): void {
@@ -47,7 +48,7 @@ class MessagesController {
         }
 
         socket.send({
-            type: 'message',
+            type: "message",
             content: message,
         });
     }
@@ -59,7 +60,7 @@ class MessagesController {
             throw new Error(`Chat ${id} is not connected`);
         }
 
-        socket.send({type: 'get old', content: '0'});
+        socket.send({ type: "get old", content: "0" });
     }
 
     private onMessage(id: number, messages: MessageType | MessageType[]): void {
@@ -85,7 +86,9 @@ class MessagesController {
     }
 
     private subscribe(transport: WSTransport, id: number): void {
-        transport.on(WSTransportEvents.Message, message => this.onMessage(id, message));
+        transport.on(WSTransportEvents.Message, (message) =>
+            this.onMessage(id, message)
+        );
         transport.on(WSTransportEvents.Close, () => this.onClose(id));
     }
 }

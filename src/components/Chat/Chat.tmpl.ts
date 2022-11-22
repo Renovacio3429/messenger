@@ -6,4 +6,4 @@ export default `
             <div class="sidebar-chat-info">{{{this.title}}}</div>
         </button>
     </div>
-`
+`;

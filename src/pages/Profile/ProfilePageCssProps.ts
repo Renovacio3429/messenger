@@ -1,4 +1,4 @@
-import {setCssClasses} from "../../components/CssClasses/CssClasses";
+import { setCssClasses } from "components/CssClasses/CssClasses";
 
 export const profilePageCssProps: Record<string, string> = {
     fieldsetCss: setCssClasses({
@@ -52,4 +52,4 @@ export const profilePageCssProps: Record<string, string> = {
     formModal: setCssClasses({
         classes: ["modal-form "],
     }),
-}
+};

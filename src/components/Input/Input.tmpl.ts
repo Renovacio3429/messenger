@@ -4,4 +4,4 @@ export default `
             placeholder="{{#if placeholder}}{{placeholder}}{{else}} {{/if}}" 
                             {{#if disabled}}
                             disabled="disabled"{{/if}}>
-`
+`;
